@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.eyecreate.miceandmystics.miceandmystics.MiceAndMysticsApplication;
 import com.eyecreate.miceandmystics.miceandmystics.R;
+import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CampaignType;
 import com.eyecreate.miceandmystics.miceandmystics.viewholders.Campaign;
 import io.realm.RealmResults;
 
@@ -33,10 +34,11 @@ public class CampaignAdapter extends RecyclerView.Adapter<Campaign> {
         notifyDataSetChanged();
     }
 
-    public void addItem(String campaignName) {
+    public void addItem(String campaignName,CampaignType type) {
         MiceAndMysticsApplication.getRealmInstance().beginTransaction();
         com.eyecreate.miceandmystics.miceandmystics.model.Campaign campaign = new com.eyecreate.miceandmystics.miceandmystics.model.Campaign();
         campaign.setCampaignName(campaignName);
+        campaign.setCampaignType(type.displayName());
         MiceAndMysticsApplication.getRealmInstance().copyToRealm(campaign);
         MiceAndMysticsApplication.getRealmInstance().commitTransaction();
         fullRefresh();

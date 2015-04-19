@@ -17,4 +17,5 @@ public enum Achievement {
     public String displayName() { return displayName; }
 
     @Override public String toString() { return displayName; }
+    public Achievement valueOfDisplayName(String valuedDisplayName) {return Achievement.valueOf(valuedDisplayName.replace(" ","_").replace("'",""));}
 }

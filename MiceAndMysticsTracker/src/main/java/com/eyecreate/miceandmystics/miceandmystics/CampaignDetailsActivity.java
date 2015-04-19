@@ -1,17 +1,22 @@
 package com.eyecreate.miceandmystics.miceandmystics;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.eyecreate.miceandmystics.miceandmystics.model.Campaign;
 
 
-public class CampaignDetailsActivity extends ActionBarActivity {
+public class CampaignDetailsActivity extends RecyclerViewActivity {
+
+    Campaign campaign;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_campaign_details);
+        setTitle(getIntent().getStringExtra("campaignName"));
+        campaign = MiceAndMysticsApplication.getRealmInstance().where(Campaign.class).equalTo("campaignName",getIntent().getStringExtra("campaignName")).findFirst();
+        setLayoutManager(new LinearLayoutManager(this));
     }
 
 
@@ -30,7 +35,7 @@ public class CampaignDetailsActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_add_character) {
             return true;
         }
 

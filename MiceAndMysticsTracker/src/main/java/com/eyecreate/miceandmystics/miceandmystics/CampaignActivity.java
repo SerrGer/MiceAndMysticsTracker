@@ -1,15 +1,17 @@
 package com.eyecreate.miceandmystics.miceandmystics;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.view.ContextThemeWrapper;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.*;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import com.eyecreate.miceandmystics.miceandmystics.adapters.CampaignAdapter;
+import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CampaignType;
 
 
 public class CampaignActivity extends RecyclerViewActivity {
@@ -40,15 +42,18 @@ public class CampaignActivity extends RecyclerViewActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_add_campaign) {
-            final EditText newName = new EditText(new ContextThemeWrapper(this,R.style.editTextDialogTheme));
-            newName.setTypeface(Typeface.createFromAsset(getAssets(),"ArchitectsDaughter.ttf"));
+            LayoutInflater inflator = (LayoutInflater)(new ContextThemeWrapper(this, R.style.dialogTheme)).getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            final View dialogView = inflator.inflate(R.layout.dialog_new_campaign, null, false);
+            final Spinner typeSpinner = ((Spinner)dialogView.findViewById(R.id.campaign_type));
+            typeSpinner.setAdapter(new ArrayAdapter<CampaignType>(this, R.layout.simple_spinner_item, CampaignType.values()));
+            typeSpinner.setSelection(0);
             AlertDialog addDialog = new AlertDialog.Builder(this,R.style.dialogTheme)
                     .setMessage("Please give your new campaign a unique name:")
-                    .setView(newName)
+                    .setView(dialogView)
                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            ((CampaignAdapter) getAdapter()).addItem(newName.getText().toString());
+                            ((CampaignAdapter) getAdapter()).addItem(((EditText) dialogView.findViewById(R.id.campagin_name)).getText().toString(), CampaignType.valueOfDisplayName(typeSpinner.getSelectedItem().toString()));
                         }
                     })
                     .create();

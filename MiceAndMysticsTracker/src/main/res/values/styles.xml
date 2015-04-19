@@ -22,9 +22,4 @@
         <item name="android:textColorPrimary">@android:color/black</item>
     </style>
 
-    <style name="editTextDialogTheme" parent="Widget.AppCompat.EditText">
-        <item name="colorAccent">@color/wood_brown</item>
-        <item name="android:textColorPrimary">@android:color/black</item>
-    </style>
-
 </resources>

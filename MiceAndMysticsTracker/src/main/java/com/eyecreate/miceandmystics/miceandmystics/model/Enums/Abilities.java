@@ -55,4 +55,5 @@ public enum Abilities {
     public String displayName() { return displayName; }
 
     @Override public String toString() { return displayName; }
+    public Abilities valueOfDisplayName(String valuedDisplayName) {return Abilities.valueOf(valuedDisplayName.replace(" ","_"));}
 }

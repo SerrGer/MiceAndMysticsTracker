@@ -7,6 +7,7 @@ import io.realm.annotations.PrimaryKey;
 public class Campaign extends RealmObject {
     @PrimaryKey
     private String campaignName;
+    private String campaignType;
     private RealmList<Character> currentCharacters;
     private RealmList<Achievement> partyStoryAchievements;
 
@@ -32,5 +33,13 @@ public class Campaign extends RealmObject {
 
     public void setCampaignName(String campaignName) {
         this.campaignName = campaignName;
+    }
+
+    public String getCampaignType() {
+        return campaignType;
+    }
+
+    public void setCampaignType(String campaignType) {
+        this.campaignType = campaignType;
     }
 }
