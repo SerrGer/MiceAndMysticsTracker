@@ -5,7 +5,7 @@ import io.realm.RealmObject;
 
 public class Campaign extends RealmObject {
     private RealmList<Character> currentCharacters;
-    private RealmList<Achievement> partyStoryAchievments;
+    private RealmList<Achievement> partyStoryAchievements;
 
     public RealmList<Character> getCurrentCharacters() {
         return currentCharacters;
@@ -15,11 +15,11 @@ public class Campaign extends RealmObject {
         this.currentCharacters = currentCharacters;
     }
 
-    public RealmList<Achievement> getPartyStoryAchievments() {
-        return partyStoryAchievments;
+    public RealmList<Achievement> getPartyStoryAchievements() {
+        return partyStoryAchievements;
     }
 
-    public void setPartyStoryAchievments(RealmList<Achievement> partyStoryAchievments) {
-        this.partyStoryAchievments = partyStoryAchievments;
+    public void setPartyStoryAchievements(RealmList<Achievement> partyStoryAchievements) {
+        this.partyStoryAchievements = partyStoryAchievements;
     }
 }
