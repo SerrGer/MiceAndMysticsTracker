@@ -2,8 +2,10 @@ package com.eyecreate.miceandmystics.miceandmystics.model;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 public class Character extends RealmObject {
+    @PrimaryKey
     private String characterName;
     private RealmList<Ability> abilities;
     private RealmList<BackpackItem> storedItems; //Not sure why I made this a list when rulebook says you can only have one xD

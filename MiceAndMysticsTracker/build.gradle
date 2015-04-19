@@ -41,4 +41,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.0.0'
     compile 'io.realm:realm-android:0.80.1'
     compile 'uk.co.chrisjenx:calligraphy:2.0.2'
+    compile 'com.android.support:recyclerview-v7:21.0.+'
 }
