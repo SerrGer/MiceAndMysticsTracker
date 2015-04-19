@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MiceAndMysticsTracker/MiceAndMysticsTracker.iml" filepath="$PROJECT_DIR$/MiceAndMysticsTracker/MiceAndMysticsTracker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MiceandMysticsCampaignTracker.iml" filepath="$PROJECT_DIR$/MiceandMysticsCampaignTracker.iml" />
+    </modules>
+  </component>
+</project>
