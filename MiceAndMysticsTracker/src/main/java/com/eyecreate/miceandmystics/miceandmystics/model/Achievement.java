@@ -7,6 +7,10 @@ public class Achievement extends RealmObject {
     @PrimaryKey
     private String achievementName;
 
+    public Achievement() {}
+
+    public Achievement(String achievementName) {setAchievementName(achievementName);}
+
     public String getAchievementName() {
         return achievementName;
     }

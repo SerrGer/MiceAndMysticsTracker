@@ -7,6 +7,10 @@ public class Player extends RealmObject {
     @PrimaryKey
     private String playerName;
 
+    public Player() {}
+
+    public Player(String playerName) {setPlayerName(playerName);}
+
     public String getPlayerName() {
         return playerName;
     }

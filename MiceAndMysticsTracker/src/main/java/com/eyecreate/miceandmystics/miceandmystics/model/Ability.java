@@ -7,6 +7,10 @@ public class Ability extends RealmObject {
     @PrimaryKey
     private String abilityName;
 
+    public Ability() {}
+
+    public Ability(String abilityName) {setAbilityName(abilityName);}
+
     public String getAbilityName() {
         return abilityName;
     }

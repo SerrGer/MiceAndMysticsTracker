@@ -8,6 +8,10 @@ public class BackpackItem extends RealmObject {
     @PrimaryKey
     private String itemName;
 
+    public BackpackItem() {}
+
+    public BackpackItem(String itemName) {setItemName(itemName);}
+
     public String getItemName() {
         return itemName;
     }

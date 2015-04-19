@@ -1,26 +1,27 @@
 package com.eyecreate.miceandmystics.miceandmystics;
 
-import android.content.Context;
-import android.support.v7.app.ActionBarActivity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.MenuItem;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+import android.widget.EditText;
+import com.eyecreate.miceandmystics.miceandmystics.adapters.CampaignAdapter;
 
 
-public class CampaignActivity extends ActionBarActivity {
+public class CampaignActivity extends RecyclerViewActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_campaign);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
-    }
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        setLayoutManager(new LinearLayoutManager(this));
+        setAdapter(new CampaignAdapter());
     }
 
     @Override
@@ -39,6 +40,19 @@ public class CampaignActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_add_campaign) {
+            final EditText newName = new EditText(new ContextThemeWrapper(this,R.style.editTextDialogTheme));
+            newName.setTypeface(Typeface.createFromAsset(getAssets(),"ArchitectsDaughter.ttf"));
+            AlertDialog addDialog = new AlertDialog.Builder(this,R.style.dialogTheme)
+                    .setMessage("Please give your new campaign a unique name:")
+                    .setView(newName)
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            ((CampaignAdapter) getAdapter()).addItem(newName.getText().toString());
+                        }
+                    })
+                    .create();
+            addDialog.show();
             return true;
         }
 

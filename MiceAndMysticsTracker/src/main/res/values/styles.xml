@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/blood_red</item>
         <item name="colorPrimaryDark">@color/dark_red</item>
         <item name="android:windowBackground">@color/wood_brown</item>
@@ -12,6 +12,19 @@
 
     <style name="popupMenu" parent="Theme.AppCompat">
         <item name="android:colorBackground">@color/blood_red</item>
+    </style>
+
+    <style name="dialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:background">@color/parchment_yellow</item>
+        <item name="colorPrimary">@color/blood_red</item>
+        <item name="colorPrimaryDark">@color/dark_red</item>
+        <item name="colorAccent">@color/wood_brown</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
+    </style>
+
+    <style name="editTextDialogTheme" parent="Widget.AppCompat.EditText">
+        <item name="colorAccent">@color/wood_brown</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
     </style>
 
 </resources>
