@@ -1,9 +1,11 @@
 package com.eyecreate.miceandmystics.miceandmystics;
 
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class CampaignActivity extends ActionBarActivity {
@@ -12,8 +14,14 @@ public class CampaignActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_campaign);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
     }
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -30,7 +38,7 @@ public class CampaignActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_add_campaign) {
             return true;
         }
 

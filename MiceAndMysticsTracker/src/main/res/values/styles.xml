@@ -1,8 +1,17 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/blood_red</item>
+        <item name="colorPrimaryDark">@color/dark_red</item>
+        <item name="android:windowBackground">@color/wood_brown</item>
+        <item name="colorAccent">@color/parchment_yellow</item>
+        <item name="android:textColorPrimary">@color/parchment_yellow</item>
+        <item name="actionBarPopupTheme">@style/popupMenu</item>
+    </style>
+
+    <style name="popupMenu" parent="Theme.AppCompat">
+        <item name="android:colorBackground">@color/blood_red</item>
     </style>
 
 </resources>
