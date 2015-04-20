@@ -24,7 +24,7 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(getIntent().getStringExtra("campaignName"));
+        setTitle("Game Details");
         campaign = MiceAndMysticsApplication.getRealmInstance().where(Campaign.class).equalTo("campaignName",getIntent().getStringExtra("campaignName")).findFirst();
         setLayoutManager(new LinearLayoutManager(this));
         setAdapter(new CampaignDetailsAdapter(campaign));

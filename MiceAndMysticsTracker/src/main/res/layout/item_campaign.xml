@@ -16,10 +16,12 @@
         <com.echo.holographlibrary.PieGraph
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:layout_margin="5dp"
                 android:id="@+id/campaign_characters_graph"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:textColor="@android:color/black"
                 android:layout_gravity="center_vertical"
                 android:id="@+id/campagin_name"/>

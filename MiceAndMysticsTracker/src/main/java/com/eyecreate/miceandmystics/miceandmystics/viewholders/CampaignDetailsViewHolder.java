@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.eyecreate.miceandmystics.miceandmystics.R;
 import com.eyecreate.miceandmystics.miceandmystics.adapters.CampaignDetailsAdapter;
 import com.eyecreate.miceandmystics.miceandmystics.model.Character;
+import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CharacterNames;
 
 public class CampaignDetailsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
 
@@ -31,7 +32,7 @@ public class CampaignDetailsViewHolder extends RecyclerView.ViewHolder implement
         boundCharacter = character;
         characterName.setText(character.getCharacterName());
         playerName.setText(character.getControllingPlayer().getPlayerName());
-        //TODO:implement character icons one in project.
+        characterIcon.setImageResource(CharacterNames.valueOf(character.getCharacterName()).getDrawableRes());
     }
 
     @Override

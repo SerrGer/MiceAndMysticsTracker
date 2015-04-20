@@ -4,4 +4,12 @@
     <color name="dark_red">#630808</color>
     <color name="wood_brown">#663300</color>
     <color name="parchment_yellow">#FBEDBE</color>
+
+    <!-- Character colors -->
+    <color name="collin">#C00000</color>
+    <color name="lily">#008000</color>
+    <color name="nez">#FF8000</color>
+    <color name="filch">#585858</color>
+    <color name="tilda">#500280</color>
+    <color name="maginos">#C0AA00</color>
 </resources>

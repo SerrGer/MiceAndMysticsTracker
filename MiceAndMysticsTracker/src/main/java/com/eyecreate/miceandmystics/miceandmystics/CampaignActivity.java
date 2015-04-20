@@ -22,7 +22,7 @@ public class CampaignActivity extends RecyclerViewActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        setTitle("Campaigns");
         setLayoutManager(new LinearLayoutManager(this));
         setAdapter(new CampaignAdapter());
     }

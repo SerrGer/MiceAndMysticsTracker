@@ -10,9 +10,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 import com.echo.holographlibrary.PieGraph;
+import com.echo.holographlibrary.PieSlice;
 import com.eyecreate.miceandmystics.miceandmystics.CampaignDetailsActivity;
 import com.eyecreate.miceandmystics.miceandmystics.R;
 import com.eyecreate.miceandmystics.miceandmystics.adapters.CampaignAdapter;
+import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CharacterNames;
 
 public class CampaignViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
 
@@ -52,6 +54,36 @@ public class CampaignViewHolder extends RecyclerView.ViewHolder implements View.
 
     public void bindModel(com.eyecreate.miceandmystics.miceandmystics.model.Campaign campaign) {
         campaignName.setText(campaign.getCampaignName());
+        characterGraph.setInnerCircleRatio(200);
+        characterGraph.removeSlices();
+        for(com.eyecreate.miceandmystics.miceandmystics.model.Character character:campaign.getCurrentCharacters()){
+            PieSlice slice = new PieSlice();
+            if(CharacterNames.valueOf(character.getCharacterName()).equals(CharacterNames.Collin)){
+                slice.setColor(campaignName.getContext().getResources().getColor(R.color.collin));
+                slice.setValue(1);
+            } else if (CharacterNames.valueOf(character.getCharacterName()).equals(CharacterNames.Filch)) {
+                slice.setColor(campaignName.getContext().getResources().getColor(R.color.filch));
+                slice.setValue(1);
+            } else if (CharacterNames.valueOf(character.getCharacterName()).equals(CharacterNames.Lily)) {
+                slice.setColor(campaignName.getContext().getResources().getColor(R.color.lily));
+                slice.setValue(1);
+            } else if (CharacterNames.valueOf(character.getCharacterName()).equals(CharacterNames.Maginos)) {
+                slice.setColor(campaignName.getContext().getResources().getColor(R.color.maginos));
+                slice.setValue(1);
+            } else if (CharacterNames.valueOf(character.getCharacterName()).equals(CharacterNames.Nez)) {
+                slice.setColor(campaignName.getContext().getResources().getColor(R.color.nez));
+                slice.setValue(1);
+            } else if (CharacterNames.valueOf(character.getCharacterName()).equals(CharacterNames.Tilda)) {
+                slice.setColor(campaignName.getContext().getResources().getColor(R.color.tilda));
+                slice.setValue(1);
+            }
+            characterGraph.addSlice(slice);
+        }
+        if(characterGraph.getSlices().size()>1) {
+            characterGraph.setPadding(10);
+        } else {
+            characterGraph.setPadding(1);//seems it won't draw 1 without some sort of padding.
+        }
     }
 
     @Override
