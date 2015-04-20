@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.eyecreate.miceandmystics.miceandmystics.adapters.CampaignDetailsAdapter;
 import com.eyecreate.miceandmystics.miceandmystics.model.Campaign;
 
 
@@ -17,6 +18,7 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
         setTitle(getIntent().getStringExtra("campaignName"));
         campaign = MiceAndMysticsApplication.getRealmInstance().where(Campaign.class).equalTo("campaignName",getIntent().getStringExtra("campaignName")).findFirst();
         setLayoutManager(new LinearLayoutManager(this));
+        setAdapter(new CampaignDetailsAdapter(campaign));
     }
 
 

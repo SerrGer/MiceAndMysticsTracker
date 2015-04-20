@@ -14,13 +14,13 @@ import com.eyecreate.miceandmystics.miceandmystics.CampaignDetailsActivity;
 import com.eyecreate.miceandmystics.miceandmystics.R;
 import com.eyecreate.miceandmystics.miceandmystics.adapters.CampaignAdapter;
 
-public class Campaign extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
+public class CampaignViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
 
     CampaignAdapter adapter;
     TextView campaignName;
     PieGraph characterGraph;
 
-    public Campaign(View itemView,CampaignAdapter adapter) {
+    public CampaignViewHolder(View itemView, CampaignAdapter adapter) {
         super(itemView);
         this.adapter = adapter;
         campaignName = (TextView) itemView.findViewById(R.id.campagin_name);

@@ -53,7 +53,7 @@ public class CampaignActivity extends RecyclerViewActivity {
                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            ((CampaignAdapter) getAdapter()).addItem(((EditText) dialogView.findViewById(R.id.campagin_name)).getText().toString(), CampaignType.valueOfDisplayName(typeSpinner.getSelectedItem().toString()));
+                            ((CampaignAdapter) getAdapter()).addItem(((EditText) dialogView.findViewById(R.id.campaign_name)).getText().toString(), CampaignType.valueOfDisplayName(typeSpinner.getSelectedItem().toString()));
                         }
                     })
                     .create();

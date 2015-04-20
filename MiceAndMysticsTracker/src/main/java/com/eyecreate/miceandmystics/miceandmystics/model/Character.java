@@ -6,6 +6,7 @@ import io.realm.annotations.PrimaryKey;
 
 public class Character extends RealmObject {
     @PrimaryKey
+    private String uuid;
     private String characterName;
     private RealmList<Ability> abilities;
     private RealmList<BackpackItem> storedItems; //Not sure why I made this a list when rulebook says you can only have one xD
@@ -41,5 +42,13 @@ public class Character extends RealmObject {
 
     public void setControllingPlayer(Player controllingPlayer) {
         this.controllingPlayer = controllingPlayer;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 }

@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import com.eyecreate.miceandmystics.miceandmystics.MiceAndMysticsApplication;
 import com.eyecreate.miceandmystics.miceandmystics.R;
 import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CampaignType;
-import com.eyecreate.miceandmystics.miceandmystics.viewholders.Campaign;
+import com.eyecreate.miceandmystics.miceandmystics.viewholders.CampaignViewHolder;
 import io.realm.RealmResults;
 
-public class CampaignAdapter extends RecyclerView.Adapter<Campaign> {
+public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
 
     LayoutInflater inflater;
     RealmResults<com.eyecreate.miceandmystics.miceandmystics.model.Campaign> campaigns;
@@ -20,13 +20,13 @@ public class CampaignAdapter extends RecyclerView.Adapter<Campaign> {
     }
 
     @Override
-    public Campaign onCreateViewHolder(ViewGroup parent, int viewType) {
+    public CampaignViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if(inflater == null) inflater = (LayoutInflater)parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        return new Campaign(inflater.inflate(R.layout.item_campaign,parent,false),this);
+        return new CampaignViewHolder(inflater.inflate(R.layout.item_campaign,parent,false),this);
     }
 
     @Override
-    public void onBindViewHolder(Campaign holder, int position) {
+    public void onBindViewHolder(CampaignViewHolder holder, int position) {
         holder.bindModel(campaigns.get(position));
     }
 

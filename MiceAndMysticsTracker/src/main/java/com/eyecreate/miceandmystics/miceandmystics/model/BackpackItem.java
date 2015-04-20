@@ -6,6 +6,7 @@ import io.realm.annotations.PrimaryKey;
 public class BackpackItem extends RealmObject {
     //TODO:Look into seeing if it's worth hard coding these instead of manual entry.
     @PrimaryKey
+    private String uuid;
     private String itemName;
 
     public BackpackItem() {}
@@ -18,5 +19,13 @@ public class BackpackItem extends RealmObject {
 
     public void setItemName(String itemName) {
         this.itemName = itemName;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 }
