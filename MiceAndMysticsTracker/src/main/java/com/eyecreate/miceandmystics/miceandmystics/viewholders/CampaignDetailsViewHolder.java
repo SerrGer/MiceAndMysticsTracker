@@ -23,6 +23,8 @@ public class CampaignDetailsViewHolder extends RecyclerView.ViewHolder implement
         characterName = (TextView)itemView.findViewById(R.id.character_name);
         playerName = (TextView)itemView.findViewById(R.id.character_player);
         characterIcon = (ImageView)itemView.findViewById(R.id.character_icon);
+        itemView.setOnClickListener(this);
+        itemView.setOnLongClickListener(this);
     }
 
     public void bindModel(Character character) {

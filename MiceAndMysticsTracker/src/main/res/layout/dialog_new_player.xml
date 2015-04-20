@@ -7,9 +7,5 @@
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/campaign_name"/>
-        <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/campaign_type"/>
+                android:id="@+id/player_name"/>
 </LinearLayout>

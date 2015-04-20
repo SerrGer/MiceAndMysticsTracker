@@ -10,6 +10,7 @@ import android.view.*;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 import com.eyecreate.miceandmystics.miceandmystics.adapters.CampaignAdapter;
 import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CampaignType;
 
@@ -42,25 +43,33 @@ public class CampaignActivity extends RecyclerViewActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_add_campaign) {
-            LayoutInflater inflator = (LayoutInflater)(new ContextThemeWrapper(this, R.style.dialogTheme)).getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            final View dialogView = inflator.inflate(R.layout.dialog_new_campaign, null, false);
-            final Spinner typeSpinner = ((Spinner)dialogView.findViewById(R.id.campaign_type));
-            typeSpinner.setAdapter(new ArrayAdapter<CampaignType>(this, R.layout.simple_spinner_item, CampaignType.values()));
-            typeSpinner.setSelection(0);
-            AlertDialog addDialog = new AlertDialog.Builder(this,R.style.dialogTheme)
-                    .setMessage("Please give your new campaign a unique name:")
-                    .setView(dialogView)
-                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            ((CampaignAdapter) getAdapter()).addItem(((EditText) dialogView.findViewById(R.id.campaign_name)).getText().toString(), CampaignType.valueOfDisplayName(typeSpinner.getSelectedItem().toString()));
-                        }
-                    })
-                    .create();
-            addDialog.show();
+            newCampaignDialog();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void newCampaignDialog() {
+        LayoutInflater inflator = (LayoutInflater)(new ContextThemeWrapper(this, R.style.dialogTheme)).getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View dialogView = inflator.inflate(R.layout.dialog_new_campaign, null, false);
+        final Spinner typeSpinner = ((Spinner)dialogView.findViewById(R.id.campaign_type));
+        typeSpinner.setAdapter(new ArrayAdapter<CampaignType>(this, R.layout.simple_spinner_item, CampaignType.values()));
+        typeSpinner.setSelection(0);
+        AlertDialog addDialog = new AlertDialog.Builder(this,R.style.dialogTheme)
+                .setMessage("Please give your new campaign a unique name:")
+                .setView(dialogView)
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if(((EditText) dialogView.findViewById(R.id.campaign_name)).getText().length()>0) {
+                            ((CampaignAdapter) getAdapter()).addItem(((EditText) dialogView.findViewById(R.id.campaign_name)).getText().toString(), CampaignType.valueOfDisplayName(typeSpinner.getSelectedItem().toString()));
+                        } else {
+                            Toast.makeText(CampaignActivity.this,"Can not have blank name!",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                })
+                .create();
+        addDialog.show();
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.Toast;
 import com.eyecreate.miceandmystics.miceandmystics.MiceAndMysticsApplication;
 import com.eyecreate.miceandmystics.miceandmystics.R;
 import com.eyecreate.miceandmystics.miceandmystics.model.*;
@@ -47,21 +48,51 @@ public class CampaignDetailsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         notifyDataSetChanged();
     }
 
+    private boolean areThereDuplicates(Campaign campaign, CharacterNames character) {
+        for(Character chr:campaign.getCurrentCharacters()) {
+            if(chr.getCharacterName().equals(character.name())){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void addCharacter(CharacterNames name, Player player) {
-        MiceAndMysticsApplication.getRealmInstance().beginTransaction();
-        Character character = MiceAndMysticsApplication.getRealmInstance().createObject(Character.class);
-        character.setUuid(UUID.randomUUID().toString());
-        character.setCharacterName(name.name());
-        character.setControllingPlayer(player);
-        MiceAndMysticsApplication.getRealmInstance().commitTransaction();
-        fullRefresh();
+        if(!areThereDuplicates(currentCampaign,name)) {
+            MiceAndMysticsApplication.getRealmInstance().beginTransaction();
+            Character character = MiceAndMysticsApplication.getRealmInstance().createObject(Character.class);
+            character.setUuid(UUID.randomUUID().toString());
+            character.setCharacterName(name.name());
+            character.setControllingPlayer(player);
+            currentCampaign.getCurrentCharacters().add(character);
+            MiceAndMysticsApplication.getRealmInstance().commitTransaction();
+            fullRefresh();
+        } else {
+            Toast.makeText(inflater.getContext(),"Can not have two of same character in game.",Toast.LENGTH_LONG).show();
+        }
     }
 
     public void removeCharacter(Character character) {
+        removeCharacterFromDB(character);
+        fullRefresh();
+    }
+
+    public static void removeCharacterFromDB(Character character) {
+        removeItemsAndAbilities(character);
         MiceAndMysticsApplication.getRealmInstance().beginTransaction();
         character.removeFromRealm();
         MiceAndMysticsApplication.getRealmInstance().commitTransaction();
-        fullRefresh();
+    }
+
+    private static void removeItemsAndAbilities(Character character) {
+        MiceAndMysticsApplication.getRealmInstance().beginTransaction();
+        for(Ability ability:character.getAbilities()) {
+            ability.removeFromRealm();
+        }
+        for(BackpackItem item:character.getStoredItems()) {
+            item.removeFromRealm();
+        }
+        MiceAndMysticsApplication.getRealmInstance().commitTransaction();
     }
 
     @Override

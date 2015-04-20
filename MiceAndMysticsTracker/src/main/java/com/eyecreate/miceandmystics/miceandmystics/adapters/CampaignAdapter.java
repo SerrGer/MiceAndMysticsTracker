@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.eyecreate.miceandmystics.miceandmystics.MiceAndMysticsApplication;
 import com.eyecreate.miceandmystics.miceandmystics.R;
+import com.eyecreate.miceandmystics.miceandmystics.model.*;
 import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CampaignType;
 import com.eyecreate.miceandmystics.miceandmystics.viewholders.CampaignViewHolder;
 import io.realm.RealmResults;
@@ -49,7 +50,13 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
                 .where(com.eyecreate.miceandmystics.miceandmystics.model.Campaign.class)
                 .equalTo("campaignName",campaignName)
                 .findFirst();
+        for(com.eyecreate.miceandmystics.miceandmystics.model.Character character:campaign.getCurrentCharacters()) {
+            CampaignDetailsAdapter.removeCharacterFromDB(character);
+        }
         MiceAndMysticsApplication.getRealmInstance().beginTransaction();
+        for(Achievement achievement:campaign.getPartyStoryAchievements()) {
+            achievement.removeFromRealm();
+        }
         campaign.removeFromRealm();
         MiceAndMysticsApplication.getRealmInstance().commitTransaction();
         fullRefresh();
