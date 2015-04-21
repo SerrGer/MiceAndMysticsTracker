@@ -3,7 +3,9 @@ package com.eyecreate.miceandmystics.miceandmystics;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.*;
 import android.widget.ArrayAdapter;
@@ -25,11 +27,20 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("Game Details");
-        campaign = MiceAndMysticsApplication.getRealmInstance().where(Campaign.class).equalTo("campaignName",getIntent().getStringExtra("campaignName")).findFirst();
+        if(getIntent().hasExtra("campaignName")) {
+            campaign = MiceAndMysticsApplication.getRealmInstance().where(Campaign.class).equalTo("campaignName",getIntent().getStringExtra("campaignName")).findFirst();
+        } else if(savedInstanceState.containsKey("campaignName")) {
+            campaign = MiceAndMysticsApplication.getRealmInstance().where(Campaign.class).equalTo("campaignName",savedInstanceState.getString("campaignName")).findFirst();
+        }
         setLayoutManager(new LinearLayoutManager(this));
         setAdapter(new CampaignDetailsAdapter(campaign));
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        outState.putString("campaignName", campaign.getCampaignName());
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -50,36 +61,49 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
             newCharacterDialog();
             return true;
         } else if (id == R.id.action_add_player) {
-            newPlayerDialog();
+            newPlayerDialog(this);
+            return true;
+        } else if (id == R.id.action_manage_players) {
+            Intent managePlayers = new Intent(this,PlayerManagerActivity.class);
+            startActivity(managePlayers);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    public void newPlayerDialog() {
-        LayoutInflater inflator = (LayoutInflater)(new ContextThemeWrapper(this, R.style.dialogTheme)).getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    public static void newPlayerDialog(final Context ctx) {
+        LayoutInflater inflator = (LayoutInflater)(new ContextThemeWrapper(ctx, R.style.dialogTheme)).getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View dialogView = inflator.inflate(R.layout.dialog_new_player, null, false);
         final EditText playerEdit = ((EditText)dialogView.findViewById(R.id.player_name));
-        AlertDialog addDialog = new AlertDialog.Builder(this,R.style.dialogTheme)
+        AlertDialog addDialog = new AlertDialog.Builder(ctx,R.style.dialogTheme)
                 .setMessage("Please name the new player:")
                 .setView(dialogView)
                 .setPositiveButton("Create", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        if (playerEdit.getText().length()>0) {
+                        RealmResults<Player> matchingPlayers = MiceAndMysticsApplication.getRealmInstance().where(Player.class).equalTo("playerName", playerEdit.getText().toString()).findAll();
+                        if (playerEdit.getText().length() > 0 && matchingPlayers.size() == 0) {
                             MiceAndMysticsApplication.getRealmInstance().beginTransaction();
                             Player player = MiceAndMysticsApplication.getRealmInstance().createObject(Player.class);
                             player.setPlayerName(playerEdit.getText().toString());
                             MiceAndMysticsApplication.getRealmInstance().copyToRealmOrUpdate(player);
                             MiceAndMysticsApplication.getRealmInstance().commitTransaction();
-                        } else {
-                            Toast.makeText(CampaignDetailsActivity.this,"Can not have a blank name!",Toast.LENGTH_LONG).show();
+                        } else if (playerEdit.getText().length() == 0) {
+                            Toast.makeText(ctx, "Can not have a blank name!", Toast.LENGTH_LONG).show();
+                        } else if (matchingPlayers.size() > 0) {
+                            Toast.makeText(ctx, "Can not have same name as another player!", Toast.LENGTH_LONG).show();
                         }
                     }
                 })
                 .create();
         addDialog.show();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getAdapter().notifyDataSetChanged();
     }
 
     public void newCharacterDialog() {

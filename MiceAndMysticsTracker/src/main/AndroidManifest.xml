@@ -25,6 +25,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.eyecreate.miceandmystics.miceandmystics.CampaignActivity" />
         </activity>
+        <activity
+                android:name=".PlayerManagerActivity">
+        </activity>
     </application>
 
 </manifest>

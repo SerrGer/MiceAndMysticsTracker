@@ -9,5 +9,13 @@
       <item android:id="@+id/action_add_player"
             android:title="Add Player"
             android:icon="@mipmap/ic_menu_invite"
+            app:showAsAction="ifRoom"/>
+      <item android:id="@+id/action_add_party_achievement"
+            android:title="Add Achievment"
+            android:icon="@mipmap/ic_menu_star"
             app:showAsAction="always"/>
+      <item android:id="@+id/action_manage_players"
+            android:title="Manage Players"
+            android:icon="@mipmap/ic_menu_friendslist"
+            app:showAsAction="ifRoom"/>
 </menu>
