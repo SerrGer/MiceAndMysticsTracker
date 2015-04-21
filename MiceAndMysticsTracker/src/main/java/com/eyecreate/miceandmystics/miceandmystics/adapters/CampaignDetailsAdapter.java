@@ -8,10 +8,12 @@ import android.widget.Toast;
 import com.eyecreate.miceandmystics.miceandmystics.MiceAndMysticsApplication;
 import com.eyecreate.miceandmystics.miceandmystics.R;
 import com.eyecreate.miceandmystics.miceandmystics.model.*;
+import com.eyecreate.miceandmystics.miceandmystics.model.Achievement;
 import com.eyecreate.miceandmystics.miceandmystics.model.Character;
-import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CharacterNames;
+import com.eyecreate.miceandmystics.miceandmystics.model.Enums.*;
 import com.eyecreate.miceandmystics.miceandmystics.viewholders.CampaignDetailsViewHolder;
 import com.eyecreate.miceandmystics.miceandmystics.viewholders.CampaignHeaderViewHolder;
+import com.eyecreate.miceandmystics.miceandmystics.viewholders.PartyAchievementViewHolder;
 import com.eyecreate.miceandmystics.miceandmystics.viewholders.PartyAchievementsHeaderViewHolder;
 
 import java.util.UUID;
@@ -35,7 +37,7 @@ public class CampaignDetailsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         } else if(viewType == R.id.campaignPartyAchievementsHeader){
             return new PartyAchievementsHeaderViewHolder(inflater.inflate(R.layout.item_partyachievements_header,parent,false));
         } else {
-            return null;
+            return new PartyAchievementViewHolder(inflater.inflate(R.layout.item_party_achievement,parent,false));
         }
     }
 
@@ -45,6 +47,8 @@ public class CampaignDetailsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             ((CampaignHeaderViewHolder)holder).bindModel(currentCampaign);
         } else if(holder instanceof  CampaignDetailsViewHolder) {
             ((CampaignDetailsViewHolder)holder).bindModel(currentCampaign.getCurrentCharacters().get(position-1)); //Here's that one again making the position value related to characters again.
+        } else if(holder instanceof PartyAchievementViewHolder) {
+            ((PartyAchievementViewHolder) holder).bindHolder(currentCampaign.getPartyStoryAchievements().get(position-2-currentCampaign.getCurrentCharacters().size())); //Here is more math that removes the headers and characters from the count.
         }
     }
 
@@ -99,6 +103,16 @@ public class CampaignDetailsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         MiceAndMysticsApplication.getRealmInstance().commitTransaction();
     }
 
+    public void addPartyAchievement(com.eyecreate.miceandmystics.miceandmystics.model.Enums.Achievement achievement) {
+        MiceAndMysticsApplication.getRealmInstance().beginTransaction();
+        Achievement realmAchievement = MiceAndMysticsApplication.getRealmInstance().createObject(Achievement.class);
+        realmAchievement.setUuid(UUID.randomUUID().toString());
+        realmAchievement.setAchievementName(achievement.displayName());
+        currentCampaign.getPartyStoryAchievements().add(realmAchievement);
+        MiceAndMysticsApplication.getRealmInstance().commitTransaction();
+        fullRefresh();
+    }
+
     @Override
     public int getItemViewType(int position) {
         if(position == 0) {
@@ -114,6 +128,6 @@ public class CampaignDetailsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     @Override
     public int getItemCount() {
-        return currentCampaign.getCurrentCharacters().size()+1+1; //The two plus ones are for the headers.
+        return currentCampaign.getCurrentCharacters().size()+1+1+currentCampaign.getPartyStoryAchievements().size(); //The two plus ones are for the headers.
     }
 }

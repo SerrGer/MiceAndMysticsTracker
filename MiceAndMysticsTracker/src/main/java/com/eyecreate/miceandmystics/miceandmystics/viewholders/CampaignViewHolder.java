@@ -29,20 +29,6 @@ public class CampaignViewHolder extends RecyclerView.ViewHolder implements View.
         characterGraph = (PieGraph) itemView.findViewById(R.id.campaign_characters_graph);
         itemView.setOnClickListener(this);
         itemView.setOnLongClickListener(this);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            itemView.setOnTouchListener(new View.OnTouchListener() {
-                @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    v
-                            .findViewById(R.id.campaign_content)
-                            .getBackground()
-                            .setHotspot(event.getX(), event.getY());
-
-                    return(false);
-                }
-            });
-        }
     }
 
     @Override

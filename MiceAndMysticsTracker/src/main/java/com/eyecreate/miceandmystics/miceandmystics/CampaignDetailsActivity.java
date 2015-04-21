@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import com.eyecreate.miceandmystics.miceandmystics.adapters.CampaignDetailsAdapter;
+import com.eyecreate.miceandmystics.miceandmystics.model.Achievement;
 import com.eyecreate.miceandmystics.miceandmystics.model.Campaign;
 import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CharacterNames;
 import com.eyecreate.miceandmystics.miceandmystics.model.Player;
@@ -68,6 +69,7 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
             startActivity(managePlayers);
             return true;
         } else if (id == R.id.action_add_party_achievement) {
+            newAchievementDialog();
             return true;
         }
 
@@ -106,6 +108,36 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
     protected void onResume() {
         super.onResume();
         getAdapter().notifyDataSetChanged();
+    }
+
+    public void newAchievementDialog() {
+        LayoutInflater inflator = (LayoutInflater)(new ContextThemeWrapper(this, R.style.dialogTheme)).getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View dialogView = inflator.inflate(R.layout.dialog_new_achievement, null, false);
+        final Spinner achievementSpinner = ((Spinner)dialogView.findViewById(R.id.achievement_name));
+        achievementSpinner.setAdapter(new ArrayAdapter<com.eyecreate.miceandmystics.miceandmystics.model.Enums.Achievement>(this, R.layout.simple_spinner_item, com.eyecreate.miceandmystics.miceandmystics.model.Enums.Achievement.values()));
+        achievementSpinner.setSelection(0);
+        AlertDialog addDialog = new AlertDialog.Builder(this,R.style.dialogTheme)
+                .setMessage("Please select the achievement to add to party:")
+                .setView(dialogView)
+                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        RealmResults<Achievement> currentPartyAchievements = MiceAndMysticsApplication.getRealmInstance().where(Achievement.class).findAll();
+                        boolean hasAlready = false;
+                        for (Achievement achievement:currentPartyAchievements) {
+                            if(achievementSpinner.getSelectedItem().toString().equals(achievement.getAchievementName())){
+                                hasAlready = true;
+                            }
+                        }
+                        if (!hasAlready) {
+                            ((CampaignDetailsAdapter) getAdapter()).addPartyAchievement((com.eyecreate.miceandmystics.miceandmystics.model.Enums.Achievement) achievementSpinner.getSelectedItem());
+                        } else {
+                            Toast.makeText(CampaignDetailsActivity.this, "Can not have more than one of same achievement.", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                })
+                .create();
+        addDialog.show();
     }
 
     public void newCharacterDialog() {
