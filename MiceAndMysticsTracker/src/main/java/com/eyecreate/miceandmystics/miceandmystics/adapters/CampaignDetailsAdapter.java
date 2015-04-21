@@ -37,7 +37,7 @@ public class CampaignDetailsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         } else if(viewType == R.id.campaignPartyAchievementsHeader){
             return new PartyAchievementsHeaderViewHolder(inflater.inflate(R.layout.item_partyachievements_header,parent,false));
         } else {
-            return new PartyAchievementViewHolder(inflater.inflate(R.layout.item_party_achievement,parent,false));
+            return new PartyAchievementViewHolder(inflater.inflate(R.layout.item_party_achievement,parent,false),this);
         }
     }
 
@@ -109,6 +109,13 @@ public class CampaignDetailsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         realmAchievement.setUuid(UUID.randomUUID().toString());
         realmAchievement.setAchievementName(achievement.displayName());
         currentCampaign.getPartyStoryAchievements().add(realmAchievement);
+        MiceAndMysticsApplication.getRealmInstance().commitTransaction();
+        fullRefresh();
+    }
+
+    public void removeAchievement(Achievement achievement) {
+        MiceAndMysticsApplication.getRealmInstance().beginTransaction();
+        achievement.removeFromRealm();
         MiceAndMysticsApplication.getRealmInstance().commitTransaction();
         fullRefresh();
     }
