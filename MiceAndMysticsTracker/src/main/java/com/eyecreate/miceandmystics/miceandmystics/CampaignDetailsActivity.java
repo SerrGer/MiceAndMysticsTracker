@@ -67,6 +67,8 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
             Intent managePlayers = new Intent(this,PlayerManagerActivity.class);
             startActivity(managePlayers);
             return true;
+        } else if (id == R.id.action_add_party_achievement) {
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

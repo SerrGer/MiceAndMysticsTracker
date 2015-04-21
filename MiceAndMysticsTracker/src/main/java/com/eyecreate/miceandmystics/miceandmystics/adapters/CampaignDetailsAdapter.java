@@ -10,9 +10,9 @@ import com.eyecreate.miceandmystics.miceandmystics.R;
 import com.eyecreate.miceandmystics.miceandmystics.model.*;
 import com.eyecreate.miceandmystics.miceandmystics.model.Character;
 import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CharacterNames;
-import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CharacterType;
 import com.eyecreate.miceandmystics.miceandmystics.viewholders.CampaignDetailsViewHolder;
 import com.eyecreate.miceandmystics.miceandmystics.viewholders.CampaignHeaderViewHolder;
+import com.eyecreate.miceandmystics.miceandmystics.viewholders.PartyAchievementsHeaderViewHolder;
 
 import java.util.UUID;
 
@@ -30,8 +30,12 @@ public class CampaignDetailsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         if(inflater == null) inflater = (LayoutInflater)parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if(viewType==R.id.campaignDetailMainHeader) {
             return new CampaignHeaderViewHolder(inflater.inflate(R.layout.item_campaign_header,parent,false));
-        } else {
+        } else if(viewType == R.id.campaignDetailItem) {
             return new CampaignDetailsViewHolder(inflater.inflate(R.layout.item_campaign_details,parent,false),this);
+        } else if(viewType == R.id.campaignPartyAchievementsHeader){
+            return new PartyAchievementsHeaderViewHolder(inflater.inflate(R.layout.item_partyachievements_header,parent,false));
+        } else {
+            return null;
         }
     }
 
@@ -39,7 +43,7 @@ public class CampaignDetailsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if(holder instanceof CampaignHeaderViewHolder) {
             ((CampaignHeaderViewHolder)holder).bindModel(currentCampaign);
-        } else {
+        } else if(holder instanceof  CampaignDetailsViewHolder) {
             ((CampaignDetailsViewHolder)holder).bindModel(currentCampaign.getCurrentCharacters().get(position-1)); //Here's that one again making the position value related to characters again.
         }
     }
@@ -99,13 +103,17 @@ public class CampaignDetailsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     public int getItemViewType(int position) {
         if(position == 0) {
             return R.id.campaignDetailMainHeader;
-        } else {
+        } else if(position < currentCampaign.getCurrentCharacters().size()+1) {
             return R.id.campaignDetailItem;
+        } else if(position == currentCampaign.getCurrentCharacters().size()+1) {
+            return R.id.campaignPartyAchievementsHeader;
+        } else {
+            return R.id.campaignPartyAchievement;
         }
     }
 
     @Override
     public int getItemCount() {
-        return currentCampaign.getCurrentCharacters().size()+1; //The plus one if for header. May expand this for other kinds of details.
+        return currentCampaign.getCurrentCharacters().size()+1+1; //The two plus ones are for the headers.
     }
 }

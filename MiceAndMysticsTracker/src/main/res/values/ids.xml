@@ -2,4 +2,6 @@
 <resources>
     <item type="id" name="campaignDetailMainHeader"/>
     <item type="id" name="campaignDetailItem"/>
+    <item type="id" name="campaignPartyAchievementsHeader"/>
+    <item type="id" name="campaignPartyAchievement"/>
 </resources>
