@@ -26,8 +26,9 @@
                 android:value="com.eyecreate.miceandmystics.miceandmystics.CampaignActivity" />
         </activity>
         <activity
-                android:name=".PlayerManagerActivity">
-        </activity>
+                android:name=".PlayerManagerActivity"/>
+        <activity
+                android:name=".CharacterDetailsActivity"/>
     </application>
 
 </manifest>

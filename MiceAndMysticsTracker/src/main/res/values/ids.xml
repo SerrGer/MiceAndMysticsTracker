@@ -4,4 +4,8 @@
     <item type="id" name="campaignDetailItem"/>
     <item type="id" name="campaignPartyAchievementsHeader"/>
     <item type="id" name="campaignPartyAchievement"/>
+    <item type="id" name="characterDeatilAbilityHeader"/>
+    <item type="id" name="characterDetailItemHeader"/>
+    <item type="id" name="characterDetailAbility"/>
+    <item type="id" name="characterDetailItem"/>
 </resources>

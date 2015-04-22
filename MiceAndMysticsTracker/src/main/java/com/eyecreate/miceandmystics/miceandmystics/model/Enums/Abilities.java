@@ -1,6 +1,8 @@
 package com.eyecreate.miceandmystics.miceandmystics.model.Enums;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public enum Abilities {
 
@@ -50,6 +52,16 @@ public enum Abilities {
             if(doesApply(t)) return true;
         }
         return false;
+    }
+
+    public static Abilities[] getMatchingCharacterAbilities(CharacterType[] matchingTypes) {
+        List<Abilities> matchingList = new ArrayList<Abilities>();
+        for(Abilities ability:Abilities.values()) {
+            if(ability.doesApply(matchingTypes)) {
+                matchingList.add(ability);
+            }
+        }
+        return matchingList.toArray(new Abilities[matchingList.size()]);
     }
 
     public String displayName() { return displayName; }

@@ -2,10 +2,13 @@ package com.eyecreate.miceandmystics.miceandmystics.viewholders;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.alertdialogpro.AlertDialogPro;
+import com.eyecreate.miceandmystics.miceandmystics.CharacterDetailsActivity;
 import com.eyecreate.miceandmystics.miceandmystics.R;
 import com.eyecreate.miceandmystics.miceandmystics.adapters.CampaignDetailsAdapter;
 import com.eyecreate.miceandmystics.miceandmystics.model.Character;
@@ -37,12 +40,14 @@ public class CampaignDetailsViewHolder extends RecyclerView.ViewHolder implement
 
     @Override
     public void onClick(View view) {
-        //TODO:implement character edit screen.
+        Intent editCharacter = new Intent(view.getContext(), CharacterDetailsActivity.class);
+        editCharacter.putExtra("characterId",boundCharacter.getUuid());
+        view.getContext().startActivity(editCharacter);
     }
 
     @Override
     public boolean onLongClick(View view) {
-        AlertDialog removeDialog = new AlertDialog.Builder(view.getContext(),R.style.dialogTheme)
+        AlertDialog removeDialog = new AlertDialogPro.Builder(view.getContext(),R.style.dialogTheme)
                 .setMessage("Do you want to remove character: "+characterName.getText()+"?")
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override

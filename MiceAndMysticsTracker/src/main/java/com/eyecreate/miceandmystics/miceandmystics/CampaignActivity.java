@@ -3,7 +3,6 @@ package com.eyecreate.miceandmystics.miceandmystics;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.*;
@@ -11,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+import com.alertdialogpro.AlertDialogPro;
 import com.eyecreate.miceandmystics.miceandmystics.adapters.CampaignAdapter;
 import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CampaignType;
 
@@ -56,7 +56,7 @@ public class CampaignActivity extends RecyclerViewActivity {
         final Spinner typeSpinner = ((Spinner)dialogView.findViewById(R.id.campaign_type));
         typeSpinner.setAdapter(new ArrayAdapter<CampaignType>(this, R.layout.simple_spinner_item, CampaignType.values()));
         typeSpinner.setSelection(0);
-        AlertDialog addDialog = new AlertDialog.Builder(this,R.style.dialogTheme)
+        AlertDialog addDialog = new AlertDialogPro.Builder(this,R.style.dialogTheme)
                 .setMessage("Please give your new campaign a unique name:")
                 .setView(dialogView)
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {

@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import com.alertdialogpro.AlertDialogPro;
 import com.eyecreate.miceandmystics.miceandmystics.MiceAndMysticsApplication;
 import com.eyecreate.miceandmystics.miceandmystics.R;
 import com.eyecreate.miceandmystics.miceandmystics.model.*;
@@ -45,7 +46,7 @@ public class PlayerManagerAdapter extends RecyclerView.Adapter<PlayerViewHolder>
         final RealmResults<Character> playerCharacters = MiceAndMysticsApplication.getRealmInstance().where(com.eyecreate.miceandmystics.miceandmystics.model.Character.class)
                 .equalTo("controllingPlayer.playerName", playerName).findAll();
         if(playerCharacters.size()>0) {
-            AlertDialog removeDialog = new AlertDialog.Builder(ctx,R.style.dialogTheme)
+            AlertDialog removeDialog = new AlertDialogPro.Builder(ctx,R.style.dialogTheme)
                     .setMessage("Removing player "+playerName+" must first remove all characters owned by player. Do you want to continue still?")
                     .setNegativeButton("No", new DialogInterface.OnClickListener() {
                         @Override
@@ -68,7 +69,7 @@ public class PlayerManagerAdapter extends RecyclerView.Adapter<PlayerViewHolder>
                     .create();
             removeDialog.show();
         } else {
-            AlertDialog removeDialog = new AlertDialog.Builder(ctx, R.style.dialogTheme)
+            AlertDialog removeDialog = new AlertDialogPro.Builder(ctx, R.style.dialogTheme)
                     .setMessage("Do you want to remove player: " + playerName + "?")
                     .setNegativeButton("No", new DialogInterface.OnClickListener() {
                         @Override

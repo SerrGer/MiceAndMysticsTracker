@@ -8,13 +8,14 @@
         <item name="colorAccent">@color/parchment_yellow</item>
         <item name="android:textColorPrimary">@color/parchment_yellow</item>
         <item name="actionBarPopupTheme">@style/popupMenu</item>
+        <item name="alertDialogProTheme">@style/Theme.AlertDialogPro.Material.Light</item>
     </style>
 
     <style name="popupMenu" parent="Theme.AppCompat">
         <item name="android:colorBackground">@color/blood_red</item>
     </style>
 
-    <style name="dialogTheme" parent="Theme.AppCompat.Light.Dialog">
+    <style name="dialogTheme" parent="Theme.AlertDialogPro.Material.Light">
         <item name="android:background">@color/parchment_yellow</item>
         <item name="colorPrimary">@color/blood_red</item>
         <item name="colorPrimaryDark">@color/dark_red</item>

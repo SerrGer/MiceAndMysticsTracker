@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+import com.alertdialogpro.AlertDialogPro;
 import com.eyecreate.miceandmystics.miceandmystics.adapters.CampaignDetailsAdapter;
 import com.eyecreate.miceandmystics.miceandmystics.model.Achievement;
 import com.eyecreate.miceandmystics.miceandmystics.model.Campaign;
@@ -80,7 +81,7 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
         LayoutInflater inflator = (LayoutInflater)(new ContextThemeWrapper(ctx, R.style.dialogTheme)).getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View dialogView = inflator.inflate(R.layout.dialog_new_player, null, false);
         final EditText playerEdit = ((EditText)dialogView.findViewById(R.id.player_name));
-        AlertDialog addDialog = new AlertDialog.Builder(ctx,R.style.dialogTheme)
+        AlertDialog addDialog = new AlertDialogPro.Builder(ctx,R.style.dialogTheme)
                 .setMessage("Please name the new player:")
                 .setView(dialogView)
                 .setPositiveButton("Create", new DialogInterface.OnClickListener() {
@@ -116,7 +117,7 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
         final Spinner achievementSpinner = ((Spinner)dialogView.findViewById(R.id.achievement_name));
         achievementSpinner.setAdapter(new ArrayAdapter<com.eyecreate.miceandmystics.miceandmystics.model.Enums.Achievement>(this, R.layout.simple_spinner_item, com.eyecreate.miceandmystics.miceandmystics.model.Enums.Achievement.values()));
         achievementSpinner.setSelection(0);
-        AlertDialog addDialog = new AlertDialog.Builder(this,R.style.dialogTheme)
+        AlertDialog addDialog = new AlertDialogPro.Builder(this,R.style.dialogTheme)
                 .setMessage("Please select the achievement to add to party:")
                 .setView(dialogView)
                 .setPositiveButton("Add", new DialogInterface.OnClickListener() {
@@ -150,7 +151,7 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
         RealmResults<Player> players = MiceAndMysticsApplication.getRealmInstance().where(Player.class).findAll();
         playerSpinner.setAdapter(new ArrayAdapter<String>(this, R.layout.simple_spinner_item, Player.convertPlayerListToStringArray(players.subList(0,players.size()))));
         playerSpinner.setSelection(0);
-        AlertDialog addDialog = new AlertDialog.Builder(this,R.style.dialogTheme)
+        AlertDialog addDialog = new AlertDialogPro.Builder(this,R.style.dialogTheme)
                 .setMessage("Please select your character and controlling player:")
                 .setView(dialogView)
                 .setPositiveButton("Create", new DialogInterface.OnClickListener() {

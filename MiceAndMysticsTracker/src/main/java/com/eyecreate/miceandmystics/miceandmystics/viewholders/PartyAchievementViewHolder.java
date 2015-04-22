@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.alertdialogpro.AlertDialogPro;
 import com.eyecreate.miceandmystics.miceandmystics.R;
 import com.eyecreate.miceandmystics.miceandmystics.adapters.CampaignDetailsAdapter;
 import com.eyecreate.miceandmystics.miceandmystics.model.Achievement;
@@ -33,7 +34,7 @@ public class PartyAchievementViewHolder extends RecyclerView.ViewHolder implemen
 
     @Override
     public boolean onLongClick(View view) {
-        AlertDialog removeDialog = new AlertDialog.Builder(view.getContext(),R.style.dialogTheme)
+        AlertDialog removeDialog = new AlertDialogPro.Builder(view.getContext(),R.style.dialogTheme)
                 .setMessage("Do you want to remove achievement: "+achievementName.getText()+"?")
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override

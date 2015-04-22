@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
+import com.alertdialogpro.AlertDialogPro;
 import com.echo.holographlibrary.PieGraph;
 import com.echo.holographlibrary.PieSlice;
 import com.eyecreate.miceandmystics.miceandmystics.CampaignDetailsActivity;
@@ -74,7 +75,7 @@ public class CampaignViewHolder extends RecyclerView.ViewHolder implements View.
 
     @Override
     public boolean onLongClick(View view) {
-        AlertDialog removeDialog = new AlertDialog.Builder(view.getContext(),R.style.dialogTheme)
+        AlertDialog removeDialog = new AlertDialogPro.Builder(view.getContext(),R.style.dialogTheme)
                 .setMessage("Do you want to remove campaign: "+campaignName.getText()+"?")
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
