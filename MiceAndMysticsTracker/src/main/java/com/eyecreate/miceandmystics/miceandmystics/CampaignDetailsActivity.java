@@ -7,17 +7,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.view.*;
+import android.view.ContextThemeWrapper;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
 import com.alertdialogpro.AlertDialogPro;
 import com.eyecreate.miceandmystics.miceandmystics.adapters.CampaignDetailsAdapter;
 import com.eyecreate.miceandmystics.miceandmystics.model.Achievement;
 import com.eyecreate.miceandmystics.miceandmystics.model.Campaign;
 import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CharacterNames;
 import com.eyecreate.miceandmystics.miceandmystics.model.Player;
+
+import io.realm.RealmList;
 import io.realm.RealmResults;
 
 
@@ -123,7 +130,7 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
                 .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        RealmResults<Achievement> currentPartyAchievements = MiceAndMysticsApplication.getRealmInstance().where(Achievement.class).findAll();
+                        RealmList<Achievement> currentPartyAchievements = MiceAndMysticsApplication.getRealmInstance().where(Campaign.class).equalTo("campaignName",campaign.getCampaignName()).findFirst().getPartyStoryAchievements();
                         boolean hasAlready = false;
                         for (Achievement achievement:currentPartyAchievements) {
                             if(achievementSpinner.getSelectedItem().toString().equals(achievement.getAchievementName())){
