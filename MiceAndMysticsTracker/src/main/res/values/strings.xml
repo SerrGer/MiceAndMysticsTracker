@@ -17,9 +17,9 @@
 
     <!-- Achievements -->
     <string name="ach_name_maggie">Miz Maggie</string>
-    <string name="ach_name_van_brush">Vanestra's Brush</string>
+    <string name="ach_name_van_brush">Vanestra\'s Brush</string>
     <string name="ach_name_king">King</string>
-    <string name="ach_name_horn_claw">Cat's Horn Claw</string>
+    <string name="ach_name_horn_claw">Cat\'s Horn Claw</string>
     <string name="ach_name_catnip">Catnip</string>
 
     <!-- Character Types -->

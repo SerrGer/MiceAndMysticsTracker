@@ -9,6 +9,7 @@ import com.alertdialogpro.AlertDialogPro;
 import com.eyecreate.miceandmystics.miceandmystics.R;
 import com.eyecreate.miceandmystics.miceandmystics.adapters.CharacterDetailsAdapter;
 import com.eyecreate.miceandmystics.miceandmystics.model.Ability;
+import com.eyecreate.miceandmystics.miceandmystics.model.Enums.Abilities;
 
 public class CharacterAbilityViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener {
 
@@ -24,7 +25,12 @@ public class CharacterAbilityViewHolder extends RecyclerView.ViewHolder implemen
     }
 
     public void bindHolder(Ability ability) {
-        abilityName.setText(ability.getAbilityName());
+        try {
+            abilityName.setText(Abilities.valueOf(ability.getAbilityName()).toString());
+        } catch(IllegalArgumentException e) {
+            //This is a workaround if ability doesn't exist. This is likely due to using old stored data.
+            abilityName.setText(ability.getAbilityName());
+        }
         uuid = ability.getUuid();
     }
 

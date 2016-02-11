@@ -73,7 +73,7 @@ public class CharacterDetailsAdapter extends RecyclerView.Adapter<RecyclerView.V
         MiceAndMysticsApplication.getRealmInstance().beginTransaction();
         Ability realmAbility = MiceAndMysticsApplication.getRealmInstance().createObject(Ability.class);
         realmAbility.setUuid(UUID.randomUUID().toString());
-        realmAbility.setAbilityName(ability.displayName());
+        realmAbility.setAbilityName(ability.name());
         currentCharacter.getAbilities().add(realmAbility);
         MiceAndMysticsApplication.getRealmInstance().commitTransaction();
         notifyDataSetChanged();
