@@ -2,7 +2,64 @@
     <string name="app_name">Mice and Mystics Tracker</string>
     <string name="title_activity_campaign_details">CampaignDetailsActivity</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Character Names -->
+    <string name="char_name_collin">Collin</string>
+    <string name="char_name_filch">Filch</string>
+    <string name="char_name_lily">Lily</string>
+    <string name="char_name_maginos">Maginos</string>
+    <string name="char_name_nez">Nez</string>
+    <string name="char_name_tilda">Tilda</string>
+
+    <!-- Campaign Types -->
+    <string name="campaign_name_s_a_r">Sorrow and Remembrance</string>
+
+    <!-- Achievements -->
+    <string name="ach_name_maggie">Miz Maggie</string>
+    <string name="ach_name_van_brush">Vanestra's Brush</string>
+    <string name="ach_name_king">King</string>
+    <string name="ach_name_horn_claw">Cat's Horn Claw</string>
+    <string name="ach_name_catnip">Catnip</string>
+
+    <!-- Character Types -->
+    <string name="char_type_warrior">Warrior</string>
+    <string name="char_type_leader">Leader</string>
+    <string name="char_type_mystic">Mystic</string>
+    <string name="char_type_scamp">Scamp</string>
+    <string name="char_type_tinkerer">Tinkerer</string>
+    <string name="char_type_archer">Archer</string>
+    <string name="char_type_healer">Healer</string>
+    <string name="char_type_maginos">Maginos</string>
+
+    <!-- Abilities -->
+    <string name="ability_firstaid">First Aid</string>
+    <string name="ability_chainlighting">Chain Lightning</string>
+    <string name="ability_mysticblast">Mystic Blast</string>
+    <string name="ability_majorheal">Major Heal</string>
+    <string name="ability_feint">Feint</string>
+    <string name="ability_battlesqueak">Battle Squeak</string>
+    <string name="ability_battleleader">Battle Leader</string>
+    <string name="ability_settrap">Set Trap</string>
+    <string name="ability_fortify">Fortify</string>
+    <string name="ability_cure">Cure</string>
+    <string name="ability_knifestrike">Knife Strike</string>
+    <string name="ability_find">Find</string>
+    <string name="ability_dodge">Dodge</string>
+    <string name="ability_thundersqueak">Thundersqueak</string>
+    <string name="ability_backslash">Backslash</string>
+    <string name="ability_mysticbolt">Mystic Bolt</string>
+    <string name="ability_inspire">Inspire</string>
+    <string name="ability_keeneye">Keen Eye</string>
+    <string name="ability_meeps">Meeps</string>
+    <string name="ability_invisibility">Invisibility</string>
+    <string name="ability_accurateshot">Accurate Shot</string>
+    <string name="ability_aimedshot">Aimed Shot</string>
+    <string name="ability_powershot">Power Shot</string>
+    <string name="ability_prempshot">Preemptive Shot</string>
+    <string name="ability_resolve">Resolve</string>
+    <string name="ability_protect">Protect</string>
+    <string name="ability_giveorder">Give Order</string>
+    <string name="ability_energyrush">Energy Rush</string>
 
 </resources>
