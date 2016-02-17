@@ -28,8 +28,8 @@ public class PartyAchievementViewHolder extends RecyclerView.ViewHolder implemen
 
     public void bindHolder(Achievement achievement) {
         this.boundAchievement = achievement;
-        achievementName.setText(achievement.getAchievementName());
-        achievementIcon.setImageResource(com.eyecreate.miceandmystics.miceandmystics.model.Enums.Achievement.valueOfDisplayName(achievement.getAchievementName()).getDisplayResource());
+        achievementName.setText(com.eyecreate.miceandmystics.miceandmystics.model.Enums.Achievement.valueOf(achievement.getAchievementName()).displayName());
+        achievementIcon.setImageResource(com.eyecreate.miceandmystics.miceandmystics.model.Enums.Achievement.valueOf(achievement.getAchievementName()).getDisplayResource());
     }
 
     @Override

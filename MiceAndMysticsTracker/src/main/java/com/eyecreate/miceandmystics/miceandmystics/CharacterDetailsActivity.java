@@ -76,7 +76,7 @@ public class CharacterDetailsActivity extends RecyclerViewActivity {
                 .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        RealmResults<Character> duplicates = MiceAndMysticsApplication.getRealmInstance().where(Character.class).equalTo("abilities.abilityName",abilitySpinner.getSelectedItem().toString()).equalTo("uuid",currentCharacter.getUuid()).findAll();
+                        RealmResults<Character> duplicates = MiceAndMysticsApplication.getRealmInstance().where(Character.class).equalTo("abilities.abilityName", ((Abilities) abilitySpinner.getSelectedItem()).name()).equalTo("uuid", currentCharacter.getUuid()).findAll();
                         if(duplicates.size()==0) {
                             ((CharacterDetailsAdapter) getAdapter()).addAbility((Abilities) abilitySpinner.getSelectedItem());
                         } else {

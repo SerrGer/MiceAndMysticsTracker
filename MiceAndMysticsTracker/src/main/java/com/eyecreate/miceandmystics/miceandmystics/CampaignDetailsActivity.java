@@ -133,7 +133,7 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
                         RealmList<Achievement> currentPartyAchievements = MiceAndMysticsApplication.getRealmInstance().where(Campaign.class).equalTo("campaignName",campaign.getCampaignName()).findFirst().getPartyStoryAchievements();
                         boolean hasAlready = false;
                         for (Achievement achievement:currentPartyAchievements) {
-                            if(achievementSpinner.getSelectedItem().toString().equals(achievement.getAchievementName())){
+                            if(((com.eyecreate.miceandmystics.miceandmystics.model.Enums.Achievement)achievementSpinner.getSelectedItem()).name().equals(achievement.getAchievementName())){
                                 hasAlready = true;
                             }
                         }

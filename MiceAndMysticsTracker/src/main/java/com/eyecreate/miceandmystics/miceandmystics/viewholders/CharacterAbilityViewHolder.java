@@ -25,12 +25,7 @@ public class CharacterAbilityViewHolder extends RecyclerView.ViewHolder implemen
     }
 
     public void bindHolder(Ability ability) {
-        try {
-            abilityName.setText(Abilities.valueOf(ability.getAbilityName()).toString());
-        } catch(IllegalArgumentException e) {
-            //This is a workaround if ability doesn't exist. This is likely due to using old stored data.
-            abilityName.setText(ability.getAbilityName());
-        }
+        abilityName.setText(Abilities.valueOf(ability.getAbilityName()).toString());
         uuid = ability.getUuid();
     }
 

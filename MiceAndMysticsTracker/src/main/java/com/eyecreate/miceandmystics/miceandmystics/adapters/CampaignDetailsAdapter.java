@@ -107,7 +107,7 @@ public class CampaignDetailsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         MiceAndMysticsApplication.getRealmInstance().beginTransaction();
         Achievement realmAchievement = MiceAndMysticsApplication.getRealmInstance().createObject(Achievement.class);
         realmAchievement.setUuid(UUID.randomUUID().toString());
-        realmAchievement.setAchievementName(achievement.displayName());
+        realmAchievement.setAchievementName(achievement.name());
         currentCampaign.getPartyStoryAchievements().add(realmAchievement);
         MiceAndMysticsApplication.getRealmInstance().commitTransaction();
         fullRefresh();
