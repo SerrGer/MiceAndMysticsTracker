@@ -33,7 +33,7 @@ public class CampaignDetailsViewHolder extends RecyclerView.ViewHolder implement
 
     public void bindModel(Character character) {
         boundCharacter = character;
-        characterName.setText(character.getCharacterName());
+        characterName.setText(CharacterNames.valueOf(character.getCharacterName()).displayName());
         playerName.setText(character.getControllingPlayer().getPlayerName());
         characterIcon.setImageResource(CharacterNames.valueOf(character.getCharacterName()).getDrawableRes());
     }

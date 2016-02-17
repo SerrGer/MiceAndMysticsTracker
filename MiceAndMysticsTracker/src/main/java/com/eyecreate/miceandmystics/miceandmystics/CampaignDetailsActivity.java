@@ -165,7 +165,7 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if(playerSpinner.getSelectedItem() != null) {
-                            ((CampaignDetailsAdapter) getAdapter()).addCharacter(CharacterNames.valueOf(charSpinner.getSelectedItem().toString()), MiceAndMysticsApplication.getRealmInstance().where(Player.class).equalTo("playerName", playerSpinner.getSelectedItem().toString()).findFirst());
+                            ((CampaignDetailsAdapter) getAdapter()).addCharacter(((CharacterNames)charSpinner.getSelectedItem()), MiceAndMysticsApplication.getRealmInstance().where(Player.class).equalTo("playerName", playerSpinner.getSelectedItem().toString()).findFirst());
                         } else {
                             Toast.makeText(CampaignDetailsActivity.this,"No player selected. Maybe try making one first.",Toast.LENGTH_LONG).show();
                         }
