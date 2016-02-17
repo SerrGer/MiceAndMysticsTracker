@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 import com.eyecreate.miceandmystics.miceandmystics.R;
 import com.eyecreate.miceandmystics.miceandmystics.model.Campaign;
+import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CampaignType;
 
 public class CampaignHeaderViewHolder extends RecyclerView.ViewHolder {
 
@@ -18,6 +19,6 @@ public class CampaignHeaderViewHolder extends RecyclerView.ViewHolder {
 
     public void bindModel(Campaign campaign) {
         campaignName.setText(campaign.getCampaignName());
-        campaignType.setText(campaign.getCampaignType());
+        campaignType.setText(CampaignType.valueOf(campaign.getCampaignType()).displayName());
     }
 }

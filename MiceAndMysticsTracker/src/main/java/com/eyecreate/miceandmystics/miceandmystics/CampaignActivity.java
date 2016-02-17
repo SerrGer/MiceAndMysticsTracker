@@ -63,7 +63,7 @@ public class CampaignActivity extends RecyclerViewActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if(((EditText) dialogView.findViewById(R.id.campaign_name)).getText().length()>0) {
-                            ((CampaignAdapter) getAdapter()).addItem(((EditText) dialogView.findViewById(R.id.campaign_name)).getText().toString(), CampaignType.valueOfDisplayName(typeSpinner.getSelectedItem().toString()));
+                            ((CampaignAdapter) getAdapter()).addItem(((EditText) dialogView.findViewById(R.id.campaign_name)).getText().toString(), CampaignType.valueOf(((CampaignType)typeSpinner.getSelectedItem()).name()));
                         } else {
                             Toast.makeText(CampaignActivity.this,"Can not have blank name!",Toast.LENGTH_LONG).show();
                         }

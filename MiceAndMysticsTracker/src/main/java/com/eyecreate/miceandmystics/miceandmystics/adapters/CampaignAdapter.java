@@ -39,7 +39,7 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
         MiceAndMysticsApplication.getRealmInstance().beginTransaction();
         com.eyecreate.miceandmystics.miceandmystics.model.Campaign campaign = new com.eyecreate.miceandmystics.miceandmystics.model.Campaign();
         campaign.setCampaignName(campaignName);
-        campaign.setCampaignType(type.displayName());
+        campaign.setCampaignType(type.name());
         MiceAndMysticsApplication.getRealmInstance().copyToRealm(campaign);
         MiceAndMysticsApplication.getRealmInstance().commitTransaction();
         fullRefresh();
