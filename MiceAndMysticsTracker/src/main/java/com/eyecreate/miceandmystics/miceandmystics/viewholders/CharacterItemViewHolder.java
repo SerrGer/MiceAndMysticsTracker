@@ -31,14 +31,14 @@ public class CharacterItemViewHolder extends RecyclerView.ViewHolder implements 
     @Override
     public boolean onLongClick(View view) {
         AlertDialog removeDialog = new AlertDialogPro.Builder(view.getContext(),R.style.dialogTheme)
-                .setMessage("Do you want to remove item: "+itemName.getText()+"?")
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                .setMessage(view.getContext().getString(R.string.remove_item_confirm)+itemName.getText()+"?")
+                .setNegativeButton(view.getContext().getString(R.string.dialog_no), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                     }
                 })
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setPositiveButton(view.getContext().getString(R.string.dialog_yes), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         adapter.removeItem(uuid);

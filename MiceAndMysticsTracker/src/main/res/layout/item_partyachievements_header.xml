@@ -10,5 +10,5 @@
                 android:textSize="16sp"
                 android:textColor="@color/parchment_yellow"
                 android:gravity="center_horizontal"
-                android:text="Party Achievements"/>
+                android:text="@string/party_item_header"/>
 </LinearLayout>

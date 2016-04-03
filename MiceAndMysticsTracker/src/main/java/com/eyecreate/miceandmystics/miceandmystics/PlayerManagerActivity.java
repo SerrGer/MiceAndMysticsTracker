@@ -10,7 +10,7 @@ public class PlayerManagerActivity extends RecyclerViewActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("Manage Players");
+        setTitle(getString(R.string.players_activity));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setLayoutManager(new LinearLayoutManager(this));
         setAdapter(new PlayerManagerAdapter());

@@ -8,5 +8,5 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/parchment_yellow"
-                android:text="Items:"/>
+                android:text="@string/char_item_header"/>
 </LinearLayout>

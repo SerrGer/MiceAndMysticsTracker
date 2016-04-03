@@ -25,7 +25,7 @@ public class CharacterDetailsActivity extends RecyclerViewActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("Character Details");
+        setTitle(getString(R.string.character_activity));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if(getIntent().hasExtra("characterId")) {
             currentCharacter = MiceAndMysticsApplication.getRealmInstance().where(Character.class).equalTo("uuid",getIntent().getStringExtra("characterId")).findFirst();
@@ -71,16 +71,16 @@ public class CharacterDetailsActivity extends RecyclerViewActivity {
         abilitySpinner.setAdapter(new ArrayAdapter<Abilities>(this, R.layout.simple_spinner_item, Abilities.getMatchingCharacterAbilities(CharacterNames.valueOf(currentCharacter.getCharacterName()).characterTypes())));
         abilitySpinner.setSelection(0);
         AlertDialog addDialog = new AlertDialogPro.Builder(this,R.style.dialogTheme)
-                .setMessage("Please select the ability to be added:")
+                .setMessage(getString(R.string.character_ability_request))
                 .setView(dialogView)
-                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.dialog_add), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         RealmResults<Character> duplicates = MiceAndMysticsApplication.getRealmInstance().where(Character.class).equalTo("abilities.abilityName", ((Abilities) abilitySpinner.getSelectedItem()).name()).equalTo("uuid", currentCharacter.getUuid()).findAll();
-                        if(duplicates.size()==0) {
+                        if (duplicates.size() == 0) {
                             ((CharacterDetailsAdapter) getAdapter()).addAbility((Abilities) abilitySpinner.getSelectedItem());
                         } else {
-                            Toast.makeText(CharacterDetailsActivity.this,"That ability is already on this character.",Toast.LENGTH_LONG).show();
+                            Toast.makeText(CharacterDetailsActivity.this, R.string.character_ability_exists, Toast.LENGTH_LONG).show();
                         }
                     }
                 })
@@ -93,15 +93,15 @@ public class CharacterDetailsActivity extends RecyclerViewActivity {
         final View dialogView = inflator.inflate(R.layout.dialog_new_item, null, false);
         final EditText itemEdit = ((EditText)dialogView.findViewById(R.id.item_name));
         AlertDialog addDialog = new AlertDialogPro.Builder(this,R.style.dialogTheme)
-                .setMessage("Please name the item to mark as held:")
+                .setMessage(getString(R.string.character_item_request))
                 .setView(dialogView)
-                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.dialog_add), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (itemEdit.getText().length() > 0) {
                             ((CharacterDetailsAdapter) getAdapter()).addItem(itemEdit.getText().toString());
                         } else if (itemEdit.getText().length() == 0) {
-                            Toast.makeText(CharacterDetailsActivity.this, "Can not have a blank item name!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(CharacterDetailsActivity.this, R.string.character_item_blank, Toast.LENGTH_LONG).show();
                         }
                     }
                 })

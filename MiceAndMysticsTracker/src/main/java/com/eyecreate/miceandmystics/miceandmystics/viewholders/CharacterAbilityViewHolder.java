@@ -32,14 +32,14 @@ public class CharacterAbilityViewHolder extends RecyclerView.ViewHolder implemen
     @Override
     public boolean onLongClick(View view) {
         AlertDialog removeDialog = new AlertDialogPro.Builder(view.getContext(),R.style.dialogTheme)
-                .setMessage("Do you want to remove ability: "+abilityName.getText()+"?")
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                .setMessage(view.getContext().getString(R.string.remove_ability_confirm)+abilityName.getText()+"?")
+                .setNegativeButton(view.getContext().getString(R.string.dialog_no), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                     }
                 })
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setPositiveButton(view.getContext().getString(R.string.dialog_yes), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         adapter.removeAbility(uuid);

@@ -76,14 +76,14 @@ public class CampaignViewHolder extends RecyclerView.ViewHolder implements View.
     @Override
     public boolean onLongClick(View view) {
         AlertDialog removeDialog = new AlertDialogPro.Builder(view.getContext(),R.style.dialogTheme)
-                .setMessage("Do you want to remove campaign: "+campaignName.getText()+"?")
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                .setMessage(view.getContext().getString(R.string.remove_campaign_confirm)+campaignName.getText()+"?")
+                .setNegativeButton(view.getContext().getString(R.string.dialog_no), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                     }
                 })
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setPositiveButton(view.getContext().getString(R.string.dialog_yes), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         adapter.removeItem((String) campaignName.getText());

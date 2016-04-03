@@ -76,7 +76,7 @@ public class CampaignDetailsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             MiceAndMysticsApplication.getRealmInstance().commitTransaction();
             fullRefresh();
         } else {
-            Toast.makeText(inflater.getContext(),"Can not have two of same character in game.",Toast.LENGTH_LONG).show();
+            Toast.makeText(inflater.getContext(), R.string.character_game_dup,Toast.LENGTH_LONG).show();
         }
     }
 

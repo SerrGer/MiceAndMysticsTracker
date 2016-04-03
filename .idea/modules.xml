@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MiceAndMysticsTracker/MiceAndMysticsTracker.iml" filepath="$PROJECT_DIR$/MiceAndMysticsTracker/MiceAndMysticsTracker.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MiceandMysticsCampaignTracker.iml" filepath="$PROJECT_DIR$/MiceandMysticsCampaignTracker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MiceAndMysticsTracker.iml" filepath="$PROJECT_DIR$/MiceAndMysticsTracker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MiceAndMysticsTracker/MiceAndMysticsTracker-MiceAndMysticsTracker.iml" filepath="$PROJECT_DIR$/MiceAndMysticsTracker/MiceAndMysticsTracker-MiceAndMysticsTracker.iml" />
     </modules>
   </component>
 </project>

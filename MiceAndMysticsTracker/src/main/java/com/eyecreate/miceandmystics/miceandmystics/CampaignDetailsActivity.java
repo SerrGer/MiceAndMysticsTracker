@@ -35,7 +35,7 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("Game Details");
+        setTitle(getString(R.string.campaign_details_Activity));
         if(getIntent().hasExtra("campaignName")) {
             campaign = MiceAndMysticsApplication.getRealmInstance().where(Campaign.class).equalTo("campaignName",getIntent().getStringExtra("campaignName")).findFirst();
         } else if(savedInstanceState.containsKey("campaignName")) {
@@ -89,9 +89,9 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
         final View dialogView = inflator.inflate(R.layout.dialog_new_player, null, false);
         final EditText playerEdit = ((EditText)dialogView.findViewById(R.id.player_name));
         AlertDialog addDialog = new AlertDialogPro.Builder(ctx,R.style.dialogTheme)
-                .setMessage("Please name the new player:")
+                .setMessage(ctx.getString(R.string.player_name_request))
                 .setView(dialogView)
-                .setPositiveButton("Create", new DialogInterface.OnClickListener() {
+                .setPositiveButton(ctx.getString(R.string.dialog_create), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         RealmResults<Player> matchingPlayers = MiceAndMysticsApplication.getRealmInstance().where(Player.class).equalTo("playerName", playerEdit.getText().toString()).findAll();
@@ -102,9 +102,9 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
                             MiceAndMysticsApplication.getRealmInstance().copyToRealmOrUpdate(player);
                             MiceAndMysticsApplication.getRealmInstance().commitTransaction();
                         } else if (playerEdit.getText().length() == 0) {
-                            Toast.makeText(ctx, "Can not have a blank name!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(ctx, R.string.player_name_blank, Toast.LENGTH_LONG).show();
                         } else if (matchingPlayers.size() > 0) {
-                            Toast.makeText(ctx, "Can not have same name as another player!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(ctx, R.string.player_name_dup, Toast.LENGTH_LONG).show();
                         }
                     }
                 })
@@ -125,22 +125,22 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
         achievementSpinner.setAdapter(new ArrayAdapter<com.eyecreate.miceandmystics.miceandmystics.model.Enums.Achievement>(this, R.layout.simple_spinner_item, com.eyecreate.miceandmystics.miceandmystics.model.Enums.Achievement.values()));
         achievementSpinner.setSelection(0);
         AlertDialog addDialog = new AlertDialogPro.Builder(this,R.style.dialogTheme)
-                .setMessage("Please select the achievement to add to party:")
+                .setMessage(getString(R.string.achievement_add_request))
                 .setView(dialogView)
-                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.dialog_add), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        RealmList<Achievement> currentPartyAchievements = MiceAndMysticsApplication.getRealmInstance().where(Campaign.class).equalTo("campaignName",campaign.getCampaignName()).findFirst().getPartyStoryAchievements();
+                        RealmList<Achievement> currentPartyAchievements = MiceAndMysticsApplication.getRealmInstance().where(Campaign.class).equalTo("campaignName", campaign.getCampaignName()).findFirst().getPartyStoryAchievements();
                         boolean hasAlready = false;
-                        for (Achievement achievement:currentPartyAchievements) {
-                            if(((com.eyecreate.miceandmystics.miceandmystics.model.Enums.Achievement)achievementSpinner.getSelectedItem()).name().equals(achievement.getAchievementName())){
+                        for (Achievement achievement : currentPartyAchievements) {
+                            if (((com.eyecreate.miceandmystics.miceandmystics.model.Enums.Achievement) achievementSpinner.getSelectedItem()).name().equals(achievement.getAchievementName())) {
                                 hasAlready = true;
                             }
                         }
                         if (!hasAlready) {
                             ((CampaignDetailsAdapter) getAdapter()).addPartyAchievement((com.eyecreate.miceandmystics.miceandmystics.model.Enums.Achievement) achievementSpinner.getSelectedItem());
                         } else {
-                            Toast.makeText(CampaignDetailsActivity.this, "Can not have more than one of same achievement.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(CampaignDetailsActivity.this, R.string.achievement_dup, Toast.LENGTH_LONG).show();
                         }
                     }
                 })
@@ -159,15 +159,15 @@ public class CampaignDetailsActivity extends RecyclerViewActivity {
         playerSpinner.setAdapter(new ArrayAdapter<String>(this, R.layout.simple_spinner_item, Player.convertPlayerListToStringArray(players.subList(0,players.size()))));
         playerSpinner.setSelection(0);
         AlertDialog addDialog = new AlertDialogPro.Builder(this,R.style.dialogTheme)
-                .setMessage("Please select your character and controlling player:")
+                .setMessage(getString(R.string.character_add_request))
                 .setView(dialogView)
-                .setPositiveButton("Create", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.dialog_create), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if(playerSpinner.getSelectedItem() != null) {
                             ((CampaignDetailsAdapter) getAdapter()).addCharacter(((CharacterNames)charSpinner.getSelectedItem()), MiceAndMysticsApplication.getRealmInstance().where(Player.class).equalTo("playerName", playerSpinner.getSelectedItem().toString()).findFirst());
                         } else {
-                            Toast.makeText(CampaignDetailsActivity.this,"No player selected. Maybe try making one first.",Toast.LENGTH_LONG).show();
+                            Toast.makeText(CampaignDetailsActivity.this, R.string.character_player_blank,Toast.LENGTH_LONG).show();
                         }
                     }
                 })

@@ -47,21 +47,21 @@ public class PlayerManagerAdapter extends RecyclerView.Adapter<PlayerViewHolder>
                 .equalTo("controllingPlayer.playerName", playerName).findAll();
         if(playerCharacters.size()>0) {
             AlertDialog removeDialog = new AlertDialogPro.Builder(ctx,R.style.dialogTheme)
-                    .setMessage("Removing player "+playerName+" must first remove all characters owned by player. Do you want to continue still?")
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    .setMessage(ctx.getString(R.string.remove_player_confirm_1)+playerName+ctx.getString(R.string.remove_player_confirm_2))
+                    .setNegativeButton(ctx.getString(R.string.dialog_no), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
                         }
                     })
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    .setPositiveButton(ctx.getString(R.string.dialog_yes), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            for(Iterator iter = playerCharacters.iterator();playerCharacters.iterator().hasNext();) {
-                                CampaignDetailsAdapter.removeCharacterFromDB((Character)iter.next());
+                            for (Iterator iter = playerCharacters.iterator(); playerCharacters.iterator().hasNext(); ) {
+                                CampaignDetailsAdapter.removeCharacterFromDB((Character) iter.next());
                             }
                             MiceAndMysticsApplication.getRealmInstance().beginTransaction();
-                            MiceAndMysticsApplication.getRealmInstance().where(Player.class).equalTo("playerName",playerName).findFirst().removeFromRealm();
+                            MiceAndMysticsApplication.getRealmInstance().where(Player.class).equalTo("playerName", playerName).findFirst().removeFromRealm();
                             MiceAndMysticsApplication.getRealmInstance().commitTransaction();
                             notifyDataSetChanged();
                         }
@@ -70,14 +70,14 @@ public class PlayerManagerAdapter extends RecyclerView.Adapter<PlayerViewHolder>
             removeDialog.show();
         } else {
             AlertDialog removeDialog = new AlertDialogPro.Builder(ctx, R.style.dialogTheme)
-                    .setMessage("Do you want to remove player: " + playerName + "?")
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    .setMessage(ctx.getString(R.string.remove_empty_player_confirm) + playerName + "?")
+                    .setNegativeButton(ctx.getString(R.string.dialog_no), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
                         }
                     })
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    .setPositiveButton(ctx.getString(R.string.dialog_yes), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             MiceAndMysticsApplication.getRealmInstance().beginTransaction();

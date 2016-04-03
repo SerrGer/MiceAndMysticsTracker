@@ -3,10 +3,12 @@ package com.eyecreate.miceandmystics.miceandmystics.model;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.Required;
 
 public class Campaign extends RealmObject {
     @PrimaryKey
     private String campaignName;
+    @Required
     private String campaignType;
     private RealmList<Character> currentCharacters;
     private RealmList<Achievement> partyStoryAchievements;

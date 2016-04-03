@@ -10,6 +10,7 @@ import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CampaignType;
 import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CharacterNames;
 
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
@@ -17,18 +18,20 @@ public class MiceAndMysticsApplication extends Application {
 
     private static MiceAndMysticsApplication singletonApplication;
     private static Realm singletonRealm;
+    private RealmConfiguration realmConfig;
 
     @Override
     public void onCreate() {
         super.onCreate();
         singletonApplication = this;
-        singletonRealm = Realm.getInstance(this);
+        realmConfig = new RealmConfiguration.Builder(this).schemaVersion(1).migration(new RealmMigrator()).build();
+        singletonRealm = Realm.getInstance(realmConfig);
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("ArchitectsDaughter.ttf")
-                .setFontAttrId(R.attr.fontPath)
-                .build()
+                        .setDefaultFontPath("ArchitectsDaughter.ttf")
+                        .setFontAttrId(R.attr.fontPath)
+                        .build()
         );
-        checkForPreLocalization();
+        //checkForPreLocalization();
     }
 
     private void checkForPreLocalization() {

@@ -62,4 +62,41 @@
     <string name="ability_giveorder">Give Order</string>
     <string name="ability_energyrush">Energy Rush</string>
 
+    <!-- UI text -->
+    <string name="dialog_confirm">Ok</string>
+    <string name="dialog_add">Add</string>
+    <string name="dialog_create">Create</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
+    <string name="char_item_header">Items:</string>
+    <string name="party_item_header">Party Achievements</string>
+    <string name="ability_item_header">Abilities</string>
+    <string name="campaign_activity">Campaigns</string>
+    <string name="campaign_name_request">Please give your new campaign a unique name:</string>
+    <string name="campaign_name_blank">Can not have blank name!</string>
+    <string name="character_activity">Character Details</string>
+    <string name="character_ability_request">Please select the ability to be added:</string>
+    <string name="character_ability_exists">That ability is already on this character.</string>
+    <string name="character_item_request">Please name the item to mark as held:</string>
+    <string name="character_item_blank">Can not have a blank item name!</string>
+    <string name="campaign_details_Activity">Game Details</string>
+    <string name="player_name_request">Please name the new player:</string>
+    <string name="player_name_blank">Can not have a blank name!</string>
+    <string name="player_name_dup">Can not have same name as another player!</string>
+    <string name="achievement_add_request">Please select the achievement to add to party:</string>
+    <string name="achievement_dup">Can not have more than one of same achievement.</string>
+    <string name="character_add_request">Please select your character and controlling player:</string>
+    <string name="character_player_blank">No player selected. Maybe try making one first.</string>
+    <string name="players_activity">Manage Players</string>
+    <string name="character_game_dup">Can not have two of same character in game.</string>
+    <string name="remove_player_confirm_1">"Removing player "</string>
+    <string name="remove_player_confirm_2">" must first remove all characters owned by player. Do you want to continue still?"</string>
+    <string name="remove_empty_player_confirm">"Do you want to remove player: "</string>
+    <string name="remove_character_confirm">"Do you want to remove character: "</string>
+    <string name="remove_campaign_confirm">"Do you want to remove campaign: "</string>
+    <string name="remove_ability_confirm">"Do you want to remove ability: "</string>
+    <string name="remove_item_confirm">"Do you want to remove item: "</string>
+    <string name="remove_achievement_confirm">"Do you want to remove achievement: "</string>
+
+
 </resources>

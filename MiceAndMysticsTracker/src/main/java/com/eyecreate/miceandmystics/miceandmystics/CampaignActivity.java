@@ -22,7 +22,7 @@ public class CampaignActivity extends RecyclerViewActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
-        setTitle("Campaigns");
+        setTitle(getString(R.string.campaign_activity));
         setLayoutManager(new LinearLayoutManager(this));
         setAdapter(new CampaignAdapter());
     }
@@ -57,15 +57,15 @@ public class CampaignActivity extends RecyclerViewActivity {
         typeSpinner.setAdapter(new ArrayAdapter<CampaignType>(this, R.layout.simple_spinner_item, CampaignType.values()));
         typeSpinner.setSelection(0);
         AlertDialog addDialog = new AlertDialogPro.Builder(this,R.style.dialogTheme)
-                .setMessage("Please give your new campaign a unique name:")
+                .setMessage(getString(R.string.campaign_name_request))
                 .setView(dialogView)
-                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.dialog_confirm), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        if(((EditText) dialogView.findViewById(R.id.campaign_name)).getText().length()>0) {
-                            ((CampaignAdapter) getAdapter()).addItem(((EditText) dialogView.findViewById(R.id.campaign_name)).getText().toString(), CampaignType.valueOf(((CampaignType)typeSpinner.getSelectedItem()).name()));
+                        if (((EditText) dialogView.findViewById(R.id.campaign_name)).getText().length() > 0) {
+                            ((CampaignAdapter) getAdapter()).addItem(((EditText) dialogView.findViewById(R.id.campaign_name)).getText().toString(), CampaignType.valueOf(((CampaignType) typeSpinner.getSelectedItem()).name()));
                         } else {
-                            Toast.makeText(CampaignActivity.this,"Can not have blank name!",Toast.LENGTH_LONG).show();
+                            Toast.makeText(CampaignActivity.this, R.string.campaign_name_blank, Toast.LENGTH_LONG).show();
                         }
                     }
                 })
