@@ -1,102 +1,102 @@
 <resources>
-    <string name="app_name">Mice and Mystics Tracker</string>
+    <string name="app_name">Maus und Mystik Tracker</string>
     <string name="title_activity_campaign_details">CampaignDetailsActivity</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Einstellungen</string>
 
     <!-- Character Names -->
     <string name="char_name_collin">Collin</string>
-    <string name="char_name_filch">Filch</string>
+    <string name="char_name_filch">Finger</string>
     <string name="char_name_lily">Lily</string>
     <string name="char_name_maginos">Maginos</string>
-    <string name="char_name_nez">Nez</string>
+    <string name="char_name_nez">Rex</string>
     <string name="char_name_tilda">Tilda</string>
 
     <!-- Campaign Types -->
     <string name="campaign_name_s_a_r">Trauer und Erinnerung</string>
 
     <!-- Achievements -->
-    <string name="ach_name_maggie">Miz Maggie</string>
-    <string name="ach_name_van_brush">Vanestra\'s Brush</string>
-    <string name="ach_name_king">King</string>
-    <string name="ach_name_horn_claw">Cat\'s Horn Claw</string>
-    <string name="ach_name_catnip">Catnip</string>
+    <string name="ach_name_maggie">Bertha</string>
+    <string name="ach_name_van_brush">Vanestra\'s Bürste</string>
+    <string name="ach_name_king">König</string>
+    <string name="ach_name_horn_claw">Krallenhorn</string>
+    <string name="ach_name_catnip">Katzenminze</string>
 
     <!-- Character Types -->
-    <string name="char_type_warrior">Warrior</string>
-    <string name="char_type_leader">Leader</string>
-    <string name="char_type_mystic">Mystic</string>
-    <string name="char_type_scamp">Scamp</string>
-    <string name="char_type_tinkerer">Tinkerer</string>
-    <string name="char_type_archer">Archer</string>
-    <string name="char_type_healer">Healer</string>
+    <string name="char_type_warrior">Kämpfer</string>
+    <string name="char_type_leader">Anführer</string>
+    <string name="char_type_mystic">Mystiker</string>
+    <string name="char_type_scamp">Strolch</string>
+    <string name="char_type_tinkerer">Tüftler</string>
+    <string name="char_type_archer">Schütze</string>
+    <string name="char_type_healer">Heiler</string>
     <string name="char_type_maginos">Maginos</string>
 
     <!-- Abilities -->
-    <string name="ability_firstaid">First Aid</string>
-    <string name="ability_chainlighting">Chain Lightning</string>
-    <string name="ability_mysticblast">Mystic Blast</string>
-    <string name="ability_majorheal">Major Heal</string>
-    <string name="ability_feint">Feint</string>
-    <string name="ability_battlesqueak">Battle Squeak</string>
-    <string name="ability_battleleader">Battle Leader</string>
-    <string name="ability_settrap">Set Trap</string>
-    <string name="ability_fortify">Fortify</string>
-    <string name="ability_cure">Cure</string>
-    <string name="ability_knifestrike">Knife Strike</string>
-    <string name="ability_find">Find</string>
-    <string name="ability_dodge">Dodge</string>
-    <string name="ability_thundersqueak">Thundersqueak</string>
-    <string name="ability_backslash">Backslash</string>
-    <string name="ability_mysticbolt">Mystic Bolt</string>
-    <string name="ability_inspire">Inspire</string>
-    <string name="ability_keeneye">Keen Eye</string>
-    <string name="ability_meeps">Meeps</string>
-    <string name="ability_invisibility">Invisibility</string>
-    <string name="ability_accurateshot">Accurate Shot</string>
-    <string name="ability_aimedshot">Aimed Shot</string>
-    <string name="ability_powershot">Power Shot</string>
-    <string name="ability_prempshot">Preemptive Shot</string>
-    <string name="ability_resolve">Resolve</string>
-    <string name="ability_protect">Protect</string>
-    <string name="ability_giveorder">Give Order</string>
-    <string name="ability_energyrush">Energy Rush</string>
+    <string name="ability_firstaid">Erste Hilfe</string>
+    <string name="ability_chainlighting">Kettenblitz</string>
+    <string name="ability_mysticblast">Mystische Explosion</string>
+    <string name="ability_majorheal">Rundumheilung</string>
+    <string name="ability_feint">Finte</string>
+    <string name="ability_battlesqueak">Kampfquieken</string>
+    <string name="ability_battleleader">Den Kampf anführen</string>
+    <string name="ability_settrap">Falle stellen</string>
+    <string name="ability_fortify">Stärkung</string>
+    <string name="ability_cure">Kurieren</string>
+    <string name="ability_knifestrike">Klingenwirbel</string>
+    <string name="ability_find">Spürnase</string>
+    <string name="ability_dodge">Leichtfüssig</string>
+    <string name="ability_thundersqueak">Donnerquieken</string>
+    <string name="ability_backslash">Kampeslust</string>
+    <string name="ability_mysticbolt">Mystischer Blitz</string>
+    <string name="ability_inspire">Inspiration</string>
+    <string name="ability_keeneye">Adlerauge</string>
+    <string name="ability_meeps">Mieps</string>
+    <string name="ability_invisibility">Unsichtbarkeit</string>
+    <string name="ability_accurateshot">Präzisionsschuss</string>
+    <string name="ability_aimedshot">Gezielter Schuss</string>
+    <string name="ability_powershot">Kraftschuss</string>
+    <string name="ability_prempshot">Präventivschuss</string>
+    <string name="ability_resolve">Parade</string>
+    <string name="ability_protect">Beschützen</string>
+    <string name="ability_giveorder">Befehl geben</string>
+    <string name="ability_energyrush">Energieschub</string>
 
     <!-- UI text -->
     <string name="dialog_confirm">Ok</string>
-    <string name="dialog_add">Add</string>
-    <string name="dialog_create">Create</string>
-    <string name="dialog_yes">Yes</string>
-    <string name="dialog_no">No</string>
-    <string name="char_item_header">Items:</string>
-    <string name="party_item_header">Party Achievements</string>
-    <string name="ability_item_header">Abilities</string>
-    <string name="campaign_activity">Campaigns</string>
-    <string name="campaign_name_request">Please give your new campaign a unique name:</string>
-    <string name="campaign_name_blank">Can not have blank name!</string>
+    <string name="dialog_add">Zufügen</string>
+    <string name="dialog_create">Erstellen</string>
+    <string name="dialog_yes">Ja</string>
+    <string name="dialog_no">Nein</string>
+    <string name="char_item_header">Gegenstände:</string>
+    <string name="party_item_header">Geschichtenerfolg</string>
+    <string name="ability_item_header">Fähigkeiten</string>
+    <string name="campaign_activity">Kampagnen</string>
+    <string name="campaign_name_request">Gebe deiner Kampagne einen einzigartigen Namen:</string>
+    <string name="campaign_name_blank">Der Name kann nicht leer sein!</string>
     <string name="character_activity">Character Details</string>
-    <string name="character_ability_request">Please select the ability to be added:</string>
-    <string name="character_ability_exists">That ability is already on this character.</string>
-    <string name="character_item_request">Please name the item to mark as held:</string>
-    <string name="character_item_blank">Can not have a blank item name!</string>
-    <string name="campaign_details_Activity">Game Details</string>
-    <string name="player_name_request">Please name the new player:</string>
-    <string name="player_name_blank">Can not have a blank name!</string>
-    <string name="player_name_dup">Can not have same name as another player!</string>
-    <string name="achievement_add_request">Please select the achievement to add to party:</string>
-    <string name="achievement_dup">Can not have more than one of same achievement.</string>
-    <string name="character_add_request">Please select your character and controlling player:</string>
-    <string name="character_player_blank">No player selected. Maybe try making one first.</string>
-    <string name="players_activity">Manage Players</string>
-    <string name="character_game_dup">Can not have two of same character in game.</string>
-    <string name="remove_player_confirm_1">"Removing player "</string>
-    <string name="remove_player_confirm_2">" must first remove all characters owned by player. Do you want to continue still?"</string>
-    <string name="remove_empty_player_confirm">"Do you want to remove player: "</string>
-    <string name="remove_character_confirm">"Do you want to remove character: "</string>
-    <string name="remove_campaign_confirm">"Do you want to remove campaign: "</string>
-    <string name="remove_ability_confirm">"Do you want to remove ability: "</string>
-    <string name="remove_item_confirm">"Do you want to remove item: "</string>
-    <string name="remove_achievement_confirm">"Do you want to remove achievement: "</string>
+    <string name="character_ability_request">Wähle eine Fähigkeit:</string>
+    <string name="character_ability_exists">Diese Fähigkeit hat der Character bereits.</string>
+    <string name="character_item_request">Benenne den Gegenstand, den der Character trägt:</string>
+    <string name="character_item_blank">Der Name kann nicht leer sein!</string>
+    <string name="campaign_details_Activity">Spiel Details</string>
+    <string name="player_name_request">Benenne den neuen Spieler:</string>
+    <string name="player_name_blank">Der Name kann nicht leer sein!</string>
+    <string name="player_name_dup">Dieser Name wird bereits verwendet!</string>
+    <string name="achievement_add_request">Wähle den Geschichtenerfolg, der hinzugefügt werden soll:</string>
+    <string name="achievement_dup">Dieser Geschichtenerfolg ist bereits vorhanden.</string>
+    <string name="character_add_request">Wähle einen Character und den zugehörigen Spieler:</string>
+    <string name="character_player_blank">Kein Spieler ausgewählt. Vielleicht muss noch einer erstellt werden.</string>
+    <string name="players_activity">Spieler verwalten</string>
+    <string name="character_game_dup">Dieser Character wird bereits verwendet.</string>
+    <string name="remove_player_confirm_1">"Entferne Spieler: "</string>
+    <string name="remove_player_confirm_2">" . Es werden alle Charactere des Spielers entfernt. Möchtest du trotzdem weiter?"</string>
+    <string name="remove_empty_player_confirm">"Soll dieser Spieler entfernt werden: "</string>
+    <string name="remove_character_confirm">"Soll dieser Character erntfernt werden: "</string>
+    <string name="remove_campaign_confirm">"Soll diese Kampagne entfernt werden: "</string>
+    <string name="remove_ability_confirm">"Soll diese Fähigkeit entfernt werden: "</string>
+    <string name="remove_item_confirm">"Soll dieser Gegenstand entfernt werden: "</string>
+    <string name="remove_achievement_confirm">"Soll dieser Gruppenerfolg entfernt werden: "</string>
 
 
 </resources>
