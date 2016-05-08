@@ -97,6 +97,13 @@
     <string name="remove_ability_confirm">"Soll diese Fähigkeit entfernt werden: "</string>
     <string name="remove_item_confirm">"Soll dieser Gegenstand entfernt werden: "</string>
     <string name="remove_achievement_confirm">"Soll dieser Gruppenerfolg entfernt werden: "</string>
+    <string name="add_campaign">Kampagne hinzufügen</string>
+    <string name="add_character">Character hinzufügen</string>
+    <string name="add_player">Spieler hinzufügen</string>
+    <string name="add_achievement">Gruppenerfolg hinzufügen</string>
+    <string name="manage_players">Spieler verwalten</string>
+    <string name="add_ability">Fähigkeit hinzufügen</string>
+    <string name="add_held_item">Gegenstand hinzufügen</string>
 
 
 </resources>

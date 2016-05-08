@@ -63,7 +63,7 @@
     <string name="ability_energyrush">Energy Rush</string>
 
     <!-- UI text -->
-    <string name="dialog_confirm">Ok</string>
+    <string name="dialog_confirm">OK</string>
     <string name="dialog_add">Add</string>
     <string name="dialog_create">Create</string>
     <string name="dialog_yes">Yes</string>
@@ -97,6 +97,13 @@
     <string name="remove_ability_confirm">"Do you want to remove ability: "</string>
     <string name="remove_item_confirm">"Do you want to remove item: "</string>
     <string name="remove_achievement_confirm">"Do you want to remove achievement: "</string>
+    <string name="add_campaign">Add Campaign</string>
+    <string name="add_character">Add Character</string>
+    <string name="add_player">Add Player</string>
+    <string name="add_achievement">Add Achievement</string>
+    <string name="manage_players">Manage Players</string>
+    <string name="add_ability">Add Ability</string>
+    <string name="add_held_item">Add Held Item</string>
 
 
 </resources>

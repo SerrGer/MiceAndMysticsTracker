@@ -3,19 +3,19 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="com.eyecreate.miceandmystics.miceandmystics.CampaignDetailsActivity">
     <item android:id="@+id/action_add_character"
-          android:title="Add Character"
+          android:title="@string/add_character"
           android:icon="@android:drawable/ic_menu_add"
           app:showAsAction="always"/>
       <item android:id="@+id/action_add_player"
-            android:title="Add Player"
+            android:title="@string/add_player"
             android:icon="@mipmap/ic_menu_invite"
             app:showAsAction="ifRoom"/>
       <item android:id="@+id/action_add_party_achievement"
-            android:title="Add Achievment"
+            android:title="@string/add_achievement"
             android:icon="@mipmap/ic_menu_star"
             app:showAsAction="always"/>
       <item android:id="@+id/action_manage_players"
-            android:title="Manage Players"
+            android:title="@string/manage_players"
             android:icon="@mipmap/ic_menu_friendslist"
             app:showAsAction="ifRoom"/>
 </menu>
