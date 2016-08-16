@@ -92,7 +92,7 @@ public class CharacterDetailsAdapter extends RecyclerView.Adapter<RecyclerView.V
     public void removeItem(String itemUuid) {
         BackpackItem item = MiceAndMysticsApplication.getRealmInstance().where(BackpackItem.class).equalTo("uuid",itemUuid).findFirst();
         MiceAndMysticsApplication.getRealmInstance().beginTransaction();
-        item.removeFromRealm();
+        item.deleteFromRealm();
         MiceAndMysticsApplication.getRealmInstance().commitTransaction();
         notifyDataSetChanged();
     }
@@ -100,7 +100,7 @@ public class CharacterDetailsAdapter extends RecyclerView.Adapter<RecyclerView.V
     public void removeAbility(String abilityUuid) {
         Ability ability = MiceAndMysticsApplication.getRealmInstance().where(Ability.class).equalTo("uuid",abilityUuid).findFirst();
         MiceAndMysticsApplication.getRealmInstance().beginTransaction();
-        ability.removeFromRealm();
+        ability.deleteFromRealm();
         MiceAndMysticsApplication.getRealmInstance().commitTransaction();
         notifyDataSetChanged();
     }

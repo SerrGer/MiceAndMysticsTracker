@@ -1,12 +1,5 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.0'
-    }
-}
 apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
 
 repositories {
     jcenter()
@@ -39,7 +32,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.0.0'
-    compile 'io.realm:realm-android:0.87.0'
     compile 'uk.co.chrisjenx:calligraphy:2.0.2'
     compile 'com.android.support:recyclerview-v7:22.0.+'
     compile 'com.android.support:cardview-v7:22.0.+'

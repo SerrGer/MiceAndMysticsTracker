@@ -88,17 +88,17 @@ public class CampaignDetailsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     public static void removeCharacterFromDB(Character character) {
         removeItemsAndAbilities(character);
         MiceAndMysticsApplication.getRealmInstance().beginTransaction();
-        character.removeFromRealm();
+        character.deleteFromRealm();
         MiceAndMysticsApplication.getRealmInstance().commitTransaction();
     }
 
     private static void removeItemsAndAbilities(Character character) {
         MiceAndMysticsApplication.getRealmInstance().beginTransaction();
         for(Ability ability:character.getAbilities()) {
-            ability.removeFromRealm();
+            ability.deleteFromRealm();
         }
         for(BackpackItem item:character.getStoredItems()) {
-            item.removeFromRealm();
+            item.deleteFromRealm();
         }
         MiceAndMysticsApplication.getRealmInstance().commitTransaction();
     }
@@ -115,7 +115,7 @@ public class CampaignDetailsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     public void removeAchievement(Achievement achievement) {
         MiceAndMysticsApplication.getRealmInstance().beginTransaction();
-        achievement.removeFromRealm();
+        achievement.deleteFromRealm();
         MiceAndMysticsApplication.getRealmInstance().commitTransaction();
         fullRefresh();
     }

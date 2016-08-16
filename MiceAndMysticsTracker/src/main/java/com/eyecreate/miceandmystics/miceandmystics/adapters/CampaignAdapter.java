@@ -55,9 +55,9 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
         }
         MiceAndMysticsApplication.getRealmInstance().beginTransaction();
         for(Achievement achievement:campaign.getPartyStoryAchievements()) {
-            achievement.removeFromRealm();
+            achievement.deleteFromRealm();
         }
-        campaign.removeFromRealm();
+        campaign.deleteFromRealm();
         MiceAndMysticsApplication.getRealmInstance().commitTransaction();
         fullRefresh();
     }

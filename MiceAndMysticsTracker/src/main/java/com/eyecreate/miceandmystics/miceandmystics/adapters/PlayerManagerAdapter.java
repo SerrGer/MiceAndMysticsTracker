@@ -61,7 +61,7 @@ public class PlayerManagerAdapter extends RecyclerView.Adapter<PlayerViewHolder>
                                 CampaignDetailsAdapter.removeCharacterFromDB((Character) iter.next());
                             }
                             MiceAndMysticsApplication.getRealmInstance().beginTransaction();
-                            MiceAndMysticsApplication.getRealmInstance().where(Player.class).equalTo("playerName", playerName).findFirst().removeFromRealm();
+                            MiceAndMysticsApplication.getRealmInstance().where(Player.class).equalTo("playerName", playerName).findFirst().deleteFromRealm();
                             MiceAndMysticsApplication.getRealmInstance().commitTransaction();
                             notifyDataSetChanged();
                         }
@@ -81,7 +81,7 @@ public class PlayerManagerAdapter extends RecyclerView.Adapter<PlayerViewHolder>
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             MiceAndMysticsApplication.getRealmInstance().beginTransaction();
-                            MiceAndMysticsApplication.getRealmInstance().where(Player.class).equalTo("playerName",playerName).findFirst().removeFromRealm();
+                            MiceAndMysticsApplication.getRealmInstance().where(Player.class).equalTo("playerName",playerName).findFirst().deleteFromRealm();
                             MiceAndMysticsApplication.getRealmInstance().commitTransaction();
                             notifyDataSetChanged();
                         }
