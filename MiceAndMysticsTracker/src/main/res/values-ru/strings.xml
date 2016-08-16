@@ -1,0 +1,109 @@
+<resources>
+    <string name="app_name">Mice and Mystics Tracker</string>
+    <string name="title_activity_campaign_details">CampaignDetailsActivity</string>
+
+    <string name="action_settings">Настройки</string>
+
+    <!-- Character Names -->
+    <string name="char_name_collin">Коллин</string>
+    <string name="char_name_filch">Стыр</string>
+    <string name="char_name_lily">Лили</string>
+    <string name="char_name_maginos">Магикус</string>
+    <string name="char_name_nez">Нез</string>
+    <string name="char_name_tilda">Тильда</string>
+
+    <!-- Campaign Types -->
+    <string name="campaign_name_s_a_r">Горесть и поминовение</string>
+
+    <!-- Achievements -->
+    <string name="ach_name_maggie">Дружба тётушки Мэгги</string>
+    <string name="ach_name_van_brush">Щётка Ванестры</string>
+    <string name="ach_name_king">Король</string>
+    <string name="ach_name_horn_claw">Коготь Мышегуба</string>
+    <string name="ach_name_catnip">Кошачья мята</string>
+
+    <!-- Character Types -->
+    <string name="char_type_warrior">Воин</string>
+    <string name="char_type_leader">Лидер</string>
+    <string name="char_type_mystic">Мистик</string>
+    <string name="char_type_scamp">Плут</string>
+    <string name="char_type_tinkerer">Изобретатель</string>
+    <string name="char_type_archer">Лучник</string>
+    <string name="char_type_healer">Целитель</string>
+    <string name="char_type_maginos">Магикус</string>
+
+    <!-- Abilities -->
+    <string name="ability_firstaid">Первая помощь</string>
+    <string name="ability_chainlighting">Цепная молния</string>
+    <string name="ability_mysticblast">Мифический взрыв</string>
+    <string name="ability_majorheal">Великое исцеление</string>
+    <string name="ability_feint">Боевая готовность</string>
+    <string name="ability_battlesqueak">Боевой писк</string>
+    <string name="ability_battleleader">Боевой лидер</string>
+    <string name="ability_settrap">Установка капканов</string>
+    <string name="ability_fortify">Концентрация</string>
+    <string name="ability_cure">Излечение</string>
+    <string name="ability_knifestrike">Удар исподтишка</string>
+    <string name="ability_find">Целеустремленность</string>
+    <string name="ability_dodge">Прыжок</string>
+    <string name="ability_thundersqueak">Апокалиписк</string>
+    <string name="ability_backslash">Натиск</string>
+    <string name="ability_mysticbolt">Мистическая стрела</string>
+    <string name="ability_inspire">Воодушевление</string>
+    <string name="ability_keeneye">Зоркий глаз</string>
+    <string name="ability_meeps">Уф</string>
+    <string name="ability_invisibility">Невидимость</string>
+    <string name="ability_accurateshot">Меткий выстрел</string>
+    <string name="ability_aimedshot">Прицельный выстрел</string>
+    <string name="ability_powershot">Мощный выстрел</string>
+    <string name="ability_prempshot">Предупредительный выстрел</string>
+    <string name="ability_resolve">Защитная стойка</string>
+    <string name="ability_protect">Оборона</string>
+    <string name="ability_giveorder">Командный голос</string>
+    <string name="ability_energyrush">Прилив сил</string>
+
+    <!-- UI text -->
+    <string name="dialog_confirm">ОК</string>
+    <string name="dialog_add">Добавить</string>
+    <string name="dialog_create">Создать</string>
+    <string name="dialog_yes">Да</string>
+    <string name="dialog_no">Нет</string>
+    <string name="char_item_header">Снаряжение:</string>
+    <string name="party_item_header">Достижения кампании</string>
+    <string name="ability_item_header">Способности</string>
+    <string name="campaign_activity">Кампании</string>
+    <string name="campaign_name_request">Пожалуйста задайте кампании уникальное имя:</string>
+    <string name="campaign_name_blank">Имя не может быть пустым!</string>
+    <string name="character_activity">Детали персонажа</string>
+    <string name="character_ability_request">Пожалуйста, выбирите способность:</string>
+    <string name="character_ability_exists">У данного персонажа уже есть такая способность.</string>
+    <string name="character_item_request">Укажите название снаряжения:</string>
+    <string name="character_item_blank">Название не может быть пустым!</string>
+    <string name="campaign_details_Activity">Детали игры</string>
+    <string name="player_name_request">Имя нового игрока:</string>
+    <string name="player_name_blank">Имя не может быть пустым!</string>
+    <string name="player_name_dup">Имя должно быть уникальным!</string>
+    <string name="achievement_add_request">Пожалуйста, выберите достижение:</string>
+    <string name="achievement_dup">Может быть только одно достижение каждого типа.</string>
+    <string name="character_add_request">Пожалуйста выберите персонажа и игрока:</string>
+    <string name="character_player_blank">Игрок не выбран. Возможно, его нужно сначала создать.</string>
+    <string name="players_activity">Настроить игроков</string>
+    <string name="character_game_dup">Не может быть двух одинаковых персонажей.</string>
+    <string name="remove_player_confirm_1">"Удаляем игрока "</string>
+    <string name="remove_player_confirm_2">" сначала нужно удалить всех персонажей игрока. Вы все еще хотите продолжить?"</string>
+    <string name="remove_empty_player_confirm">"Вы хотите удалить игрока: "</string>
+    <string name="remove_character_confirm">"Вы хотите удалить персонажа: "</string>
+    <string name="remove_campaign_confirm">"Вы хотите удалить кампанию: "</string>
+    <string name="remove_ability_confirm">"Вы хотите удалить способность: "</string>
+    <string name="remove_item_confirm">"Вы хотите удалить снаряжение: "</string>
+    <string name="remove_achievement_confirm">"Вы хотите удалить достижение: "</string>
+    <string name="add_campaign">Добавить кампанию</string>
+    <string name="add_character">Добавить персонажа</string>
+    <string name="add_player">Добавить игрока</string>
+    <string name="add_achievement">Добавить достижение</string>
+    <string name="manage_players">Настроить игроков</string>
+    <string name="add_ability">Добавить способность</string>
+    <string name="add_held_item">Добавить снаряжение</string>
+
+
+</resources>
