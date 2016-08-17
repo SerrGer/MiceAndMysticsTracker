@@ -7,6 +7,7 @@ import io.realm.annotations.Required;
 public class BackpackItem extends RealmObject {
     //TODO:Look into seeing if it's worth hard coding these instead of manual entry.
     @PrimaryKey
+    @Required
     private String uuid;
     @Required
     private String itemName;

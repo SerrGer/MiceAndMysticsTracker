@@ -24,7 +24,7 @@ public class MiceAndMysticsApplication extends Application {
     public void onCreate() {
         super.onCreate();
         singletonApplication = this;
-        realmConfig = new RealmConfiguration.Builder(this).schemaVersion(1).migration(new RealmMigrator()).build();
+        realmConfig = new RealmConfiguration.Builder(this).schemaVersion(2).migration(new RealmMigrator()).build();
         singletonRealm = Realm.getInstance(realmConfig);
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                         .setDefaultFontPath("ArchitectsDaughter.ttf")

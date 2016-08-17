@@ -7,6 +7,7 @@ import io.realm.annotations.Required;
 
 public class Character extends RealmObject {
     @PrimaryKey
+    @Required
     private String uuid;
     @Required
     private String characterName;

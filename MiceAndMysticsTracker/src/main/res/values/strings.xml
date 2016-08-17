@@ -72,6 +72,7 @@
     <string name="party_item_header">Party Achievements</string>
     <string name="ability_item_header">Abilities</string>
     <string name="campaign_activity">Campaigns</string>
+    <string name="campaign_chapter">Chapter</string>
     <string name="campaign_name_request">Please give your new campaign a unique name:</string>
     <string name="campaign_name_blank">Can not have blank name!</string>
     <string name="character_activity">Character Details</string>

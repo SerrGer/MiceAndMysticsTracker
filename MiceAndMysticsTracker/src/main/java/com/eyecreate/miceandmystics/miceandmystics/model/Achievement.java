@@ -8,6 +8,7 @@ import java.util.UUID;
 
 public class Achievement extends RealmObject {
     @PrimaryKey
+    @Required
     private String uuid;
     @Required
     private String achievementName;

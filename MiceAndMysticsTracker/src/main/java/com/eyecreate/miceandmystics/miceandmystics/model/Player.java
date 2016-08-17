@@ -2,12 +2,14 @@ package com.eyecreate.miceandmystics.miceandmystics.model;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.Required;
 
 import java.util.List;
 import java.util.UUID;
 
 public class Player extends RealmObject {
     @PrimaryKey
+    @Required
     private String playerName;
 
     public Player() {}
