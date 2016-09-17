@@ -72,6 +72,7 @@
     <string name="party_item_header">Geschichtenerfolg</string>
     <string name="ability_item_header">Fähigkeiten</string>
     <string name="campaign_activity">Kampagnen</string>
+    <string name="campaign_chapter">Kapitel</string>
     <string name="campaign_name_request">Gebe deiner Kampagne einen einzigartigen Namen:</string>
     <string name="campaign_name_blank">Der Name kann nicht leer sein!</string>
     <string name="character_activity">Character Details</string>

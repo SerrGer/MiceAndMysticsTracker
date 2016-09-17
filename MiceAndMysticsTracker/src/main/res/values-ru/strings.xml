@@ -72,6 +72,7 @@
     <string name="party_item_header">Достижения кампании</string>
     <string name="ability_item_header">Способности</string>
     <string name="campaign_activity">Кампании</string>
+    <string name="campaign_chapter">Главе</string>
     <string name="campaign_name_request">Пожалуйста задайте кампании уникальное имя:</string>
     <string name="campaign_name_blank">Имя не может быть пустым!</string>
     <string name="character_activity">Детали персонажа</string>
