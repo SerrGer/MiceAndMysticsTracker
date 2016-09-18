@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mice and Mystics secuenciador</string>
+    <string name="title_activity_campaign_details">CampañaDetallesHabilidades</string>
+    <string name="action_settings">Configuraciones</string>
+    <!--Nombres de los personajes-->
+    <string name="char_name_collin">Collin</string>
+    <string name="char_name_filch">Filch</string>
+    <string name="char_name_lily">Lily</string>
+    <string name="char_name_maginos">Maginos</string>
+    <string name="char_name_nez">Nez</string>
+    <string name="char_name_tilda">Tilda</string>
+    <!--Tipos de campaña-->
+    <string name="campaign_name_s_a_r">Dolor y Recuerdo</string>
+    <!--Logros-->
+    <string name="ach_name_maggie">Miz Maggie</string>
+    <string name="ach_name_van_brush">Cepillo de Vanestra</string>
+    <string name="ach_name_king">Rey</string>
+    <string name="ach_name_horn_claw">Garra Cuerno Gato</string>
+    <string name="ach_name_catnip">Menta de Gato</string>
+    <!--Clases de Personaje-->
+    <string name="char_type_warrior">Guerrero</string>
+    <string name="char_type_leader">Líder</string>
+    <string name="char_type_mystic">Mago</string>
+    <string name="char_type_scamp">Bribón</string>
+    <string name="char_type_tinkerer">Manitas</string>
+    <string name="char_type_archer">Arquero</string>
+    <string name="char_type_healer">Sanadora</string>
+    <string name="char_type_maginos">Maginos</string>
+    <!--Habilidades-->
+    <string name="ability_firstaid">Primeros Auxílios</string>
+    <string name="ability_chainlighting">Relámpago en Cadena</string>
+    <string name="ability_mysticblast">Estallido Místico</string>
+    <string name="ability_majorheal">Gran Curación</string>
+    <string name="ability_feint">Finta</string>
+    <string name="ability_battlesqueak">Chillido de Batalla</string>
+    <string name="ability_battleleader">Líder de Batalla</string>
+    <string name="ability_settrap">Colocar Trampas</string>
+    <string name="ability_fortify">Fortalecimiento</string>
+    <string name="ability_cure">Curación</string>
+    <string name="ability_knifestrike">Acuchillar</string>
+    <string name="ability_find">Hallazgo</string>
+    <string name="ability_dodge">Esquivar</string>
+    <string name="ability_thundersqueak">Chillido Atronador</string>
+    <string name="ability_backslash">Contraofensiva</string>
+    <string name="ability_mysticbolt">Rayo Místico</string>
+    <string name="ability_inspire">Inspiración</string>
+    <string name="ability_keeneye">Agudeza Visual</string>
+    <string name="ability_meeps">Meeps</string>
+    <string name="ability_invisibility">Invisibilidad</string>
+    <string name="ability_accurateshot">Disparo Preciso</string>
+    <string name="ability_aimedshot">Disparo con Puntería</string>
+    <string name="ability_powershot">Disparo Potente</string>
+    <string name="ability_prempshot">Disparo de Anticipación</string>
+    <string name="ability_resolve">Resuelto</string>
+    <string name="ability_protect">Protección</string>
+    <string name="ability_giveorder">Dar Órdenes</string>
+    <string name="ability_energyrush">Empuje de Energía</string>
+    <!--Texto UI -->
+    <string name="dialog_confirm">De acuerdo</string>
+    <string name="dialog_add">Añadir</string>
+    <string name="dialog_create">Crear</string>
+    <string name="dialog_yes">Sí</string>
+    <string name="dialog_no">No</string>
+    <string name="char_item_header">Artículos:</string>
+    <string name="party_item_header">Logros de Equipo</string>
+    <string name="ability_item_header">Habilidades</string>
+    <string name="campaign_activity">Campañas</string>
+    <string name="campaign_chapter">Capítulo</string>
+    <string name="campaign_name_request">Por favor, da un nombre único para la campaña:</string>
+    <string name="campaign_name_blank">¡No puedes dejar el nombre en blanco!</string>
+    <string name="character_activity">Detalles del Personaje</string>
+    <string name="character_ability_request">Por favor, indica cual habilidad se añade:</string>
+    <string name="character_ability_exists">Esta habilidad ya la tiene este personaje.</string>
+    <string name="character_item_request">Por favor, indica el artículo que se añade como equipado:</string>
+    <string name="character_item_blank">¡No puedes dejar en blanco el nombre del Artículo!</string>
+    <string name="campaign_details_Activity">Detalles de la Partida.</string>
+    <string name="player_name_request">Por favor di el nombre del nuevo jugador:</string>
+    <string name="player_name_blank">¡No puedes dejar el nombre en blanco!</string>
+    <string name="player_name_dup">¡No puedes tener el mismo nombre de otro jugador!</string>
+    <string name="achievement_add_request">Por favor selecciona el logro a añadir a tu equipo:</string>
+    <string name="achievement_dup">No se puede tener el mismo logro más de una vez.</string>
+    <string name="character_add_request">Por favor, selecciona tu personaje y el jugador que lo controla:</string>
+    <string name="character_player_blank">Ningún jugador escogido. Prueba de crear uno antes.</string>
+    <string name="players_activity">Gestionar Jugadores</string>
+    <string name="character_game_dup">No puedes tener dos veces el mismo personaje en la partida.</string>
+    <string name="remove_player_confirm_1">"Borrando jugador "</string>
+    <string name="remove_player_confirm_2">" debes borrar todos los personajes de este jugador. ¿Aún quieres continuar?"</string>
+    <string name="remove_empty_player_confirm">"¿Quieres eliminar al Jugador: "</string>
+    <string name="remove_character_confirm">"¿Quieres borrar el Personaje: "</string>
+    <string name="remove_campaign_confirm">"¿Quieres borrar la Campaña: "</string>
+    <string name="remove_ability_confirm">"¿Quieres borrar la Habilidad: "</string>
+    <string name="remove_item_confirm">"¿Quieres borrar el Artículo: "</string>
+    <string name="remove_achievement_confirm">"¿Quieres borrar el Logro: "</string>
+    <string name="add_campaign">Añadir Campaña</string>
+    <string name="add_character">Añadir Personaje</string>
+    <string name="add_player">Añadir Jugador</string>
+    <string name="add_achievement">Añadir Logro</string>
+    <string name="manage_players">Gestionar Jugadores</string>
+    <string name="add_ability">Añadir Habilidad</string>
+    <string name="add_held_item">Añadir Artículo Equipado</string>
+</resources>
