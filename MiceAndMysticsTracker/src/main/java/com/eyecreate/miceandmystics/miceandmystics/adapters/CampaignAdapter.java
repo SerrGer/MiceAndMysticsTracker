@@ -4,11 +4,13 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+
 import com.eyecreate.miceandmystics.miceandmystics.MiceAndMysticsApplication;
 import com.eyecreate.miceandmystics.miceandmystics.R;
-import com.eyecreate.miceandmystics.miceandmystics.model.*;
+import com.eyecreate.miceandmystics.miceandmystics.model.Character;
 import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CampaignType;
 import com.eyecreate.miceandmystics.miceandmystics.viewholders.CampaignViewHolder;
+
 import io.realm.RealmResults;
 
 public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
@@ -50,13 +52,12 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignViewHolder> {
                 .where(com.eyecreate.miceandmystics.miceandmystics.model.Campaign.class)
                 .equalTo("campaignName",campaignName)
                 .findFirst();
-        for(com.eyecreate.miceandmystics.miceandmystics.model.Character character:campaign.getCurrentCharacters()) {
-            CampaignDetailsAdapter.removeCharacterFromDB(character);
+        for(Character character:campaign.getCurrentCharacters()) {
+            CampaignDetailsAdapter.removeItemsAndAbilities(character);
         }
         MiceAndMysticsApplication.getRealmInstance().beginTransaction();
-        for(Achievement achievement:campaign.getPartyStoryAchievements()) {
-            achievement.deleteFromRealm();
-        }
+        campaign.getCurrentCharacters().deleteAllFromRealm();
+        campaign.getPartyStoryAchievements().deleteAllFromRealm();
         campaign.deleteFromRealm();
         MiceAndMysticsApplication.getRealmInstance().commitTransaction();
         fullRefresh();

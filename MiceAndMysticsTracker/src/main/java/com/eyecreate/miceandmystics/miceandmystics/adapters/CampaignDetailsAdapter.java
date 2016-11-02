@@ -5,12 +5,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import com.eyecreate.miceandmystics.miceandmystics.MiceAndMysticsApplication;
 import com.eyecreate.miceandmystics.miceandmystics.R;
-import com.eyecreate.miceandmystics.miceandmystics.model.*;
 import com.eyecreate.miceandmystics.miceandmystics.model.Achievement;
+import com.eyecreate.miceandmystics.miceandmystics.model.Campaign;
 import com.eyecreate.miceandmystics.miceandmystics.model.Character;
-import com.eyecreate.miceandmystics.miceandmystics.model.Enums.*;
+import com.eyecreate.miceandmystics.miceandmystics.model.Enums.CharacterNames;
+import com.eyecreate.miceandmystics.miceandmystics.model.Player;
 import com.eyecreate.miceandmystics.miceandmystics.viewholders.CampaignDetailsViewHolder;
 import com.eyecreate.miceandmystics.miceandmystics.viewholders.CampaignHeaderViewHolder;
 import com.eyecreate.miceandmystics.miceandmystics.viewholders.PartyAchievementViewHolder;
@@ -92,14 +94,10 @@ public class CampaignDetailsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         MiceAndMysticsApplication.getRealmInstance().commitTransaction();
     }
 
-    private static void removeItemsAndAbilities(Character character) {
+    public static void removeItemsAndAbilities(Character character) {
         MiceAndMysticsApplication.getRealmInstance().beginTransaction();
-        for(Ability ability:character.getAbilities()) {
-            ability.deleteFromRealm();
-        }
-        for(BackpackItem item:character.getStoredItems()) {
-            item.deleteFromRealm();
-        }
+        character.getAbilities().deleteAllFromRealm();
+        character.getStoredItems().deleteAllFromRealm();
         MiceAndMysticsApplication.getRealmInstance().commitTransaction();
     }
 
